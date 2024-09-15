@@ -17,7 +17,7 @@ load_dotenv()
 BROKER = os.getenv('BROKER')
 USERNAME = os.getenv('USERNAME')
 PASSWORD = os.getenv('PASSWORD')
-RABBITMQ_PORT = 5672
+RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
 # For RabbitMQ
 RABBITMQ_QUEUE = 'update_eval_server_queue'
@@ -77,7 +77,7 @@ class EvalClient:
         self.port = port
         self.secret_key = secret_key
         self.conn = None
-        self.timeout = 60  # seconds
+        self.timeout = 2  # seconds
         self.loop = asyncio.get_event_loop()
         self.rabbitmq_connection = None
         self.channel = None
@@ -86,6 +86,7 @@ class EvalClient:
 
     async def connect(self):
         self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.conn.settimeout(self.timeout)
         await self.loop.sock_connect(self.conn, (self.host, self.port))
         print(f'[DEBUG] Connected to evaluation server at {self.host}:{self.port}')
 
@@ -196,11 +197,29 @@ async def main():
                     action_data = json.loads(message.body.decode('utf-8'))
                     player_id = action_data['player_id']
                     action = action_data['action']
-                    client_game_state = action_data['game_state']
+                    p1state = action_data['game_state']['p1']
+                    p2state = action_data['game_state']['p2']
                     message_to_send = json.dumps({
                         'player_id': player_id,
                         'action': action,
-                        'game_state': client_game_state
+                        'game_state': {
+                            "p1": {
+                            "hp": p1state['hp'],
+                            "bullets": p1state['bullets'],
+                            "bombs": p1state['bombs'],
+                            "shield_hp": p1state['shield_hp'],
+                            "deaths": p1state['deaths'],
+                            "shields": p1state['shields']
+                            },
+                            "p2": {
+                            "hp": p2state['hp'],
+                            "bullets": p2state['bullets'],
+                            "bombs": p2state['bombs'],
+                            "shield_hp": p2state['shield_hp'],
+                            "deaths": p2state['deaths'],
+                            "shields": p2state['shields']
+                            }
+                        }
                     })
                     print(f'[DEBUG] Sending action and game_state to server: {message_to_send}')
                     await eval_client.send_text(message_to_send)
