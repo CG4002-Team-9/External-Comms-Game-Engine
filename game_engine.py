@@ -12,7 +12,7 @@ load_dotenv()
 
 # Use the same broker, username, and password for both RabbitMQ and MQTT
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 
 # Abstracted RabbitMQ port
@@ -112,7 +112,7 @@ class GameEngine:
         self.rabbitmq_connection = await aio_pika.connect_robust(
             host=BROKER,
             port=RABBITMQ_PORT,
-            login=USERNAME,
+            login=BROKERUSER,
             password=PASSWORD,
         )
         self.channel = await self.rabbitmq_connection.channel()
@@ -271,7 +271,7 @@ class GameEngine:
         async with aiomqtt.Client(
             hostname=MQTT_BROKER,
             port=MQTT_PORT,
-            username=USERNAME,
+            username=BROKERUSER,
             password=PASSWORD
         ) as self.mqtt_client:
             print(f'[DEBUG] Connected to MQTT broker at {MQTT_BROKER}:{MQTT_PORT}')

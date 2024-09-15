@@ -13,7 +13,7 @@ load_dotenv()
 
 # Use the same broker, username, and password for RabbitMQ
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
@@ -90,7 +90,7 @@ class AIServer:
         self.rabbitmq_connection = await aio_pika.connect_robust(
             host=BROKER,
             port=RABBITMQ_PORT,
-            login=USERNAME,
+            login=BROKERUSER,
             password=PASSWORD,
         )
         self.channel = await self.rabbitmq_connection.channel()

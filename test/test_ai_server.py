@@ -11,7 +11,7 @@ load_dotenv()
 
 # RabbitMQ configurations
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
@@ -39,7 +39,7 @@ class AITest:
         self.connection = await aio_pika.connect_robust(
             host=BROKER,
             port=RABBITMQ_PORT,
-            login=USERNAME,
+            login=BROKERUSER,
             password=PASSWORD,
         )
         self.channel = await self.connection.channel()

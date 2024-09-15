@@ -12,7 +12,7 @@ load_dotenv()
 
 # Broker configurations
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
@@ -37,7 +37,7 @@ class GameEngineTest:
         self.rabbitmq_connection = await aio_pika.connect_robust(
             host=BROKER,
             port=RABBITMQ_PORT,
-            login=USERNAME,
+            login=BROKERUSER,
             password=PASSWORD,
         )
         self.channel = await self.rabbitmq_connection.channel()
@@ -89,7 +89,7 @@ class GameEngineTest:
         async with aiomqtt.Client(
             hostname=BROKER,
             port=MQTT_PORT,
-            username=USERNAME,
+            username=BROKERUSER,
             password=PASSWORD,
         ) as mqtt_client:
             self.mqtt_client = mqtt_client

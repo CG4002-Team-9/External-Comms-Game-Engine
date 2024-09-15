@@ -15,7 +15,7 @@ import aio_pika
 load_dotenv()
 
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
@@ -139,7 +139,7 @@ class EvalClient:
         self.rabbitmq_connection = await aio_pika.connect_robust(
             host=BROKER,
             port=RABBITMQ_PORT,
-            login=USERNAME,
+            login=BROKERUSER,
             password=PASSWORD,
             loop=self.loop,
         )

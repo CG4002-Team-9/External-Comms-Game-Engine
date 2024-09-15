@@ -12,7 +12,7 @@ load_dotenv()
 
 # Broker configurations
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
@@ -33,7 +33,7 @@ class GameEngineTest:
         self.rabbitmq_connection = await aio_pika.connect_robust(
             host=BROKER,
             port=RABBITMQ_PORT,
-            login=USERNAME,
+            login=BROKERUSER,
             password=PASSWORD,
         )
         self.channel = await self.rabbitmq_connection.channel()
@@ -57,11 +57,11 @@ class GameEngineTest:
         test_message = {
             'action': True,
             'player_id': 1,
-            'action_type': 'gun',
+            'action_type': 'reload',
             'hit': True,  # Added 'hit' field
             'game_state': {
                 'p1': {'opponent_visible': True,
-                       'opponent_in_rain_bomb': 1},
+                       'opponent_in_rain_bomb': 0},
                 'p2': {'opponent_visible': True,
                        'opponent_in_rain_bomb': 0}
             }

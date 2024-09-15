@@ -10,7 +10,7 @@ import aio_pika
 load_dotenv()
 
 BROKER = os.getenv('BROKER')
-USERNAME = os.getenv('USERNAME')
+BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 
 RABBITMQ_QUEUE = 'update_eval_server_queue'
@@ -20,7 +20,7 @@ async def publish_message():
     connection = await aio_pika.connect_robust(
         host=BROKER,
         port=5672,
-        login=USERNAME,
+        login=BROKERUSER,
         password=PASSWORD,
     )
     channel = await connection.channel()
