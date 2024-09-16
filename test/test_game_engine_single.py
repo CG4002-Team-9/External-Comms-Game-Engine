@@ -58,7 +58,7 @@ class GameEngineTest:
             'action': True,
             'player_id':1,
             'action_type': 'bomb',
-            # 'hit': True,  # Added 'hit' field
+            'hit': True,  # Added 'hit' field
             'game_state': {
                 'p1': {'opponent_visible': True,
                        'opponent_in_rain_bomb': 0},

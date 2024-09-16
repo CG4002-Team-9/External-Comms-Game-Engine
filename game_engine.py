@@ -261,6 +261,7 @@ class GameEngine:
                 print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
             else:
                 # Only update internal game state without sending messages
+                print(f'Game state updated internally: {json.dumps(self.game_state, indent=2)}')
                 print('[DEBUG] Updated internal game state without sending any messages')
 
     async def run(self):
