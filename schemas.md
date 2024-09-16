@@ -188,7 +188,9 @@ These messages are sent to all nodes (e.g., Bluetooth nodes, visualizer phones) 
     "p1": { ... },
     "p2": { ... }
   },
-  "action": str,
+  "update": bool,
+  "action": bool,
+  "action_type": str,
   "player_id": int
 }
 ```

@@ -154,10 +154,12 @@ class GameEngine:
 
         # Handle actions
         if action_type == 'gun':
-            if hit and player['bullets'] > 0:
-                print(f'[DEBUG] Player {player_id} fired a gun. Bullets left: {player["bullets"]}')
+            
+            if player['bullets'] > 0:
                 player['bullets'] -= 1
-                damage_to_opponent = 5  # Gun shot results in -5 HP
+                if hit:
+                    damage_to_opponent = 5  # Gun shot results in -5 HP
+                print(f'[DEBUG] Player {player_id} fired a gun. Bullets left: {player["bullets"]}. Hit: {hit}')
         elif action_type == 'bomb':
             if player['bombs'] > 0 and opponent_visible:
                 # Reduce bombs
@@ -247,9 +249,7 @@ class GameEngine:
             elif to_update:
                 # Prepare message to publish
                 mqtt_message = {
-                    "game_state": self.game_state,
-                    "action": action_type,
-                    "player_id": player_id
+                    "game_state": self.game_state
                 }
                 mqtt_message_str = json.dumps(mqtt_message)
                 # Publish to MQTT topic
