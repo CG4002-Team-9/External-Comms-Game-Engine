@@ -76,42 +76,43 @@ class GameEngineTest:
                 continue
 
             # Simulating player action detected from wearables
-            test_message = {
-                'action': True,
-                'player_id': player_id,
-                'action_type': action_type,
-                'hit': True,  # Added 'hit' field
-                'game_state': {
-                    'p1': {'opponent_visible': True,
-                           'opponent_in_rain_bomb': 0},
-                    'p2': {'opponent_visible': True,
-                           'opponent_in_rain_bomb': 0}
-                }
-            }
-            
-            # simulate eval server update game engine
             # test_message = {
-            #     'update': True,
+            #     'action': True,
+            #     'player_id': player_id,
+            #     'action_type': action_type,
+            #     'hit': True,  # Added 'hit' field
             #     'game_state': {
-            #         'p1': {
-            #             'hp': 100,
-            #             'bullets': 6,
-            #             'bombs': 2,
-            #             'shield_hp': 0,
-            #             'deaths': 0,
-            #             'shields': 3,
-            #         },
-            #         'p2': {
-            #             'hp': 100,
-            #             'bullets': 6,
-            #             'bombs': 2,
-            #             'shield_hp': 0,
-            #             'deaths': 0,
-            #             'shields': 3,
-            #         }
+            #         'p1': {'opponent_visible': True,
+            #                'opponent_in_rain_bomb': 0},
+            #         'p2': {'opponent_visible': True,
+            #                'opponent_in_rain_bomb': 0}
             #     }
             # }
             
+            # Simulate Game Engine updates from eval server
+            test_message = {
+                'update': True,
+                'game_state': {
+                    'p1': {
+                        'hp': 100,
+                        'bullets': 6,
+                        'bombs': 2,
+                        'shield_hp': 0,
+                        'deaths': 0,
+                        'shields': 3,
+                    },
+                    'p2': {
+                        'hp': 100,
+                        'bullets': 6,
+                        'bombs': 2,
+                        'shield_hp': 0,
+                        'deaths': 0,
+                        'shields': 3,
+                    }
+                }
+            }
+            
+            # Simulate visualizer communications with server
             # test_message = {
             #     'game_state': {
             #         'p1': {'opponent_visible': True,
