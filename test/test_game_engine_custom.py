@@ -75,50 +75,50 @@ class GameEngineTest:
                 print(f"Invalid action type. Please choose from {', '.join(available_actions)} or 'no' to exit.")
                 continue
 
-            # Simulating player action detected from wearables
+            # Simulating player action detected from wearables / rain bomb damage tick in visualizer
             # test_message = {
             #     'action': True,
             #     'player_id': player_id,
             #     'action_type': action_type,
-            #     'hit': True,  # Added 'hit' field
+            #     'hit': True,
             #     'game_state': {
             #         'p1': {'opponent_visible': True,
-            #                'opponent_in_rain_bomb': 0},
+            #                'opponent_in_rain_bomb': 2},
             #         'p2': {'opponent_visible': True,
             #                'opponent_in_rain_bomb': 0}
             #     }
             # }
             
             # Simulate Game Engine updates from eval server
-            test_message = {
-                'update': True,
-                'game_state': {
-                    'p1': {
-                        'hp': 100,
-                        'bullets': 6,
-                        'bombs': 2,
-                        'shield_hp': 0,
-                        'deaths': 0,
-                        'shields': 3,
-                    },
-                    'p2': {
-                        'hp': 100,
-                        'bullets': 6,
-                        'bombs': 2,
-                        'shield_hp': 0,
-                        'deaths': 0,
-                        'shields': 3,
-                    }
-                }
-            }
+            # test_message = {
+            #     'update': True,
+            #     'game_state': {
+            #         'p1': {
+            #             'hp': 100,
+            #             'bullets': 6,
+            #             'bombs': 2,
+            #             'shield_hp': 0,
+            #             'deaths': 0,
+            #             'shields': 3,
+            #         },
+            #         'p2': {
+            #             'hp': 100,
+            #             'bullets': 6,
+            #             'bombs': 2,
+            #             'shield_hp': 0,
+            #             'deaths': 0,
+            #             'shields': 3,
+            #         }
+            #     }
+            # }
             
             # Simulate visualizer communications with server
             # test_message = {
             #     'game_state': {
             #         'p1': {'opponent_visible': True,
-            #                'opponent_in_rain_bomb': 0},
+            #                'opponent_in_rain_bomb': 2},
             #         'p2': {'opponent_visible': True,
-            #                'opponent_in_rain_bomb': 0}
+            #                'opponent_in_rain_bomb': 2}
             #     }
             # }
             
