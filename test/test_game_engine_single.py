@@ -57,7 +57,7 @@ class GameEngineTest:
         test_message = {
             'action': True,
             'player_id':1,
-            'action_type': 'bomb',
+            'action_type': 'basket',
             'hit': True,  # Added 'hit' field
             'game_state': {
                 'p1': {'opponent_visible': True,

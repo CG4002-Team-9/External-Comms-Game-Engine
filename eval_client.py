@@ -10,14 +10,19 @@ import base64
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 import aio_pika
+import purge_queues
 
-# Load environment variables from .env file
+# Load environment variables from .env file or system environment
 load_dotenv()
 
 BROKER = os.getenv('BROKER')
 BROKERUSER = os.getenv('BROKERUSER')
 PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
+
+# Retrieve PORT and SECRET_KEY from environment variables
+PORT = int(os.getenv('PORT', '54321'))
+SECRET_KEY = os.getenv('SECRET_PASSWORD', '1234567812345678')
 
 # For RabbitMQ
 RABBITMQ_QUEUE = 'update_eval_server_queue'
@@ -165,19 +170,23 @@ async def main():
     # Assume the server is running on localhost
     server_host = 'localhost'
 
-    # The port number and secret key are provided as command-line arguments
-    if len(sys.argv) < 3:
-        print('Usage: eval_client.py <port_number> <secret_key>')
+    # Ensure that the port and secret key are available
+    if not PORT or not SECRET_KEY:
+        print('PORT or SECRET_KEY environment variables not set')
         sys.exit(1)
-    port = int(sys.argv[1])
-    secret_key = sys.argv[2]
+
     # Secret key must be 16 bytes long (AES-128)
-    if len(secret_key) != 16:
+    if len(SECRET_KEY) != 16:
         print('Secret key must be 16 characters long')
         sys.exit(1)
 
-    eval_client = EvalClient(server_host, port, secret_key)
+    eval_client = EvalClient(server_host, PORT, SECRET_KEY)
     try:
+        # Create instance of QueuePurger and purge the queues before running the game engine
+        purger = purge_queues.QueuePurger()
+        print('[DEBUG] Purging queues before starting the game engine...')
+        await purger.run_purge()  # Purge the queues
+        
         await eval_client.connect()
 
         # Send 'hello' to verify password

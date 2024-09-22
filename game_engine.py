@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 import aio_pika
 import aiomqtt
+import purge_queues
 
 # Load environment variables from .env file
 load_dotenv()
@@ -154,7 +155,7 @@ class GameEngine:
 
         # Handle actions
         if action_type == 'gun':
-            
+            #When player has ammo
             if player['bullets'] > 0:
                 player['bullets'] -= 1
                 if hit:
@@ -265,6 +266,11 @@ class GameEngine:
                 print('[DEBUG] Updated internal game state without sending any messages')
 
     async def run(self):
+        # Create instance of QueuePurger and purge the queues before running the game engine
+        purger = purge_queues.QueuePurger()
+        print('[DEBUG] Purging queues before starting the game engine...')
+        await purger.run_purge()  # Purge the queues
+        
         await self.setup_rabbitmq()
 
         # Set up MQTT client using aiomqtt

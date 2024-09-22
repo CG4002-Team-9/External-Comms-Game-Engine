@@ -90,27 +90,27 @@ class GameEngineTest:
             # }
             
             # Simulate Game Engine updates from eval server
-            # test_message = {
-            #     'update': True,
-            #     'game_state': {
-            #         'p1': {
-            #             'hp': 100,
-            #             'bullets': 6,
-            #             'bombs': 2,
-            #             'shield_hp': 0,
-            #             'deaths': 0,
-            #             'shields': 3,
-            #         },
-            #         'p2': {
-            #             'hp': 100,
-            #             'bullets': 6,
-            #             'bombs': 2,
-            #             'shield_hp': 0,
-            #             'deaths': 0,
-            #             'shields': 3,
-            #         }
-            #     }
-            # }
+            test_message = {
+                'update': True,
+                'game_state': {
+                    'p1': {
+                        'hp': 90,
+                        'bullets': 6,
+                        'bombs': 2,
+                        'shield_hp': 0,
+                        'deaths': 0,
+                        'shields': 3,
+                    },
+                    'p2': {
+                        'hp': 100,
+                        'bullets': 6,
+                        'bombs': 2,
+                        'shield_hp': 0,
+                        'deaths': 0,
+                        'shields': 3,
+                    }
+                }
+            }
             
             # Simulate visualizer communications with server
             # test_message = {
