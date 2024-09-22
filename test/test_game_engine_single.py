@@ -18,8 +18,8 @@ RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
 
 # RabbitMQ queues
-UPDATE_GE_QUEUE = 'update_ge_queue'
-UPDATE_EVAL_SERVER_QUEUE = 'update_eval_server_queue'
+UPDATE_EVAL_SERVER_QUEUE = os.getenv('UPDATE_EVAL_SERVER_QUEUE', 'update_eval_server_queue')
+UPDATE_GE_QUEUE = os.getenv('UPDATE_GE_QUEUE', 'update_ge_queue') 
 
 class GameEngineTest:
     def __init__(self):
@@ -57,11 +57,11 @@ class GameEngineTest:
         test_message = {
             'action': True,
             'player_id':1,
-            'action_type': 'basket',
+            'action_type': 'logout',
             'hit': True,  # Added 'hit' field
             'game_state': {
                 'p1': {'opponent_visible': True,
-                       'opponent_in_rain_bomb': 0},
+                       'opponent_in_rain_bomb': 2},
                 'p2': {'opponent_visible': True,
                        'opponent_in_rain_bomb': 0}
             }

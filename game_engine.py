@@ -24,11 +24,11 @@ MQTT_BROKER = BROKER
 MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
 
 # RabbitMQ queues
-UPDATE_GE_QUEUE = 'update_ge_queue'
-UPDATE_EVAL_SERVER_QUEUE = 'update_eval_server_queue'  # Queue to publish to when action is true
+UPDATE_EVAL_SERVER_QUEUE = os.getenv('UPDATE_EVAL_SERVER_QUEUE', 'update_eval_server_queue')
+UPDATE_GE_QUEUE = os.getenv('UPDATE_GE_QUEUE', 'update_ge_queue') 
 
 # MQTT topic
-MQTT_TOPIC_UPDATE_EVERYONE = 'update_everyone'
+MQTT_TOPIC_UPDATE_EVERYONE = os.getenv('MQTT_TOPIC_UPDATE_EVERYONE', 'update_everyone')
 
 # Example full schema for messages to and from the game engine
 """
@@ -238,6 +238,9 @@ class GameEngine:
                     "player_id": player_id
                 }
                 mqtt_message_str = json.dumps(mqtt_message)
+                # Publish to update_eval_server_queue
+                await self.publish_to_update_eval_server_queue(mqtt_message)
+                
                 # Publish to MQTT topic
                 await self.mqtt_client.publish(
                     MQTT_TOPIC_UPDATE_EVERYONE,
@@ -245,8 +248,6 @@ class GameEngine:
                     qos=2
                 )
                 print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
-                # Publish to update_eval_server_queue
-                await self.publish_to_update_eval_server_queue(mqtt_message)
             elif to_update:
                 # Prepare message to publish
                 mqtt_message = {
@@ -270,6 +271,9 @@ class GameEngine:
         purger = purge_queues.QueuePurger()
         print('[DEBUG] Purging queues before starting the game engine...')
         await purger.run_purge()  # Purge the queues
+        
+        # print the starting game state
+        print(f'[DEBUG] Starting game state: {json.dumps(self.game_state, indent=2)}')
         
         await self.setup_rabbitmq()
 

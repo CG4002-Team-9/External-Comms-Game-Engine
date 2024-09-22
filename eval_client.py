@@ -25,8 +25,8 @@ PORT = int(os.getenv('PORT', '54321'))
 SECRET_KEY = os.getenv('SECRET_PASSWORD', '1234567812345678')
 
 # For RabbitMQ
-RABBITMQ_QUEUE = 'update_eval_server_queue'
-UPDATE_GE_QUEUE = 'update_ge_queue'  # New queue for updating game engine
+UPDATE_EVAL_SERVER_QUEUE = os.getenv('UPDATE_EVAL_SERVER_QUEUE', 'update_eval_server_queue')
+UPDATE_GE_QUEUE = os.getenv('UPDATE_GE_QUEUE', 'update_ge_queue') 
 
 
 """ format of data passed to the eval_server
@@ -152,7 +152,7 @@ class EvalClient:
         # Set prefetch count to 0 to receive messages as they come
         await self.channel.set_qos(prefetch_count=0)
         # Declare the queue for receiving messages
-        self.queue = await self.channel.declare_queue(RABBITMQ_QUEUE, durable=True)
+        self.queue = await self.channel.declare_queue(UPDATE_EVAL_SERVER_QUEUE, durable=True)
         # Declare the update_ge_queue for publishing messages
         self.update_ge_queue = await self.channel.declare_queue(UPDATE_GE_QUEUE, durable=True)
         print(f'[DEBUG] Connected to RabbitMQ broker at {BROKER}')
