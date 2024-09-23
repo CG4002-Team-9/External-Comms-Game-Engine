@@ -90,7 +90,9 @@ class GameEngine:
                 'shields': 3,
                 'opponent_visible': False,
                 'opponent_in_rain_bomb': 0,  # Counter for rain bombs
-                'disconnected': False,
+                'glove_connected': False,
+                'vest_connected': False,
+                'leg_connected': False,
                 'login': False
             },
             'p2': {
@@ -102,7 +104,9 @@ class GameEngine:
                 'shields': 3,
                 'opponent_visible': False,
                 'opponent_in_rain_bomb': 0,
-                'disconnected': False,
+                'glove_connected': False,
+                'vest_connected': False,
+                'leg_connected': False,
                 'login': False
             }
         }
@@ -137,6 +141,11 @@ class GameEngine:
                 self.game_state[player_key].update(incoming_game_state[player_key])
 
     def perform_action(self, player_id, action_type, data):
+        # If either player is not logged in, do not perform any actions for both players
+        if not self.game_state['p1']['login'] or not self.game_state['p2']['login']:
+            print('[DEBUG] Cannot perform actions when one or both players are not logged in.')
+            return False
+        
         # Perform calculations based on action_type
         player_key = f'p{player_id}'
         opponent_key = 'p1' if player_key == 'p2' else 'p2'
@@ -212,6 +221,8 @@ class GameEngine:
                 opponent['bullets'] = 6
                 opponent['bombs'] = 2
                 print(f'[DEBUG] Player {opponent_key[-1]} died and respawned.')
+        
+        return True
 
     async def process_message(self, message: aio_pika.IncomingMessage):
         async with message.process():
@@ -230,7 +241,7 @@ class GameEngine:
 
             if action_performed:
                 # Perform action calculations before updating internal state
-                self.perform_action(player_id, action_type, data)
+                action_registered = self.perform_action(player_id, action_type, data)
                 # Prepare message to publish
                 mqtt_message = {
                     "game_state": self.game_state,
@@ -248,6 +259,8 @@ class GameEngine:
                     qos=2
                 )
                 print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
+                # Publish to update_eval_server_queue
+                await self.publish_to_update_eval_server_queue(mqtt_message)
             elif to_update:
                 # Prepare message to publish
                 mqtt_message = {

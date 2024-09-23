@@ -61,9 +61,11 @@ class GameEngineTest:
             'hit': True,  # Added 'hit' field
             'game_state': {
                 'p1': {'opponent_visible': True,
-                       'opponent_in_rain_bomb': 2},
+                       'opponent_in_rain_bomb': 0},
                 'p2': {'opponent_visible': True,
-                       'opponent_in_rain_bomb': 0}
+                       'opponent_in_rain_bomb': 0,
+                       'login': False
+                       }
             }
         }
 
