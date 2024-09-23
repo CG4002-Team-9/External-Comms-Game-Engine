@@ -18,8 +18,8 @@ RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
 
 # RabbitMQ queues
-UPDATE_GE_QUEUE = 'update_ge_queue'
-UPDATE_EVAL_SERVER_QUEUE = 'update_eval_server_queue'
+UPDATE_GE_QUEUE = 'update_ge_queue_ULTRA96'
+UPDATE_EVAL_SERVER_QUEUE = 'update_eval_server_queue_ULTRA96'
 
 # MQTT topic
 MQTT_TOPIC_UPDATE_EVERYONE = 'update_everyone'
@@ -272,13 +272,14 @@ class GameEngineTest:
 
             for test_case in test_messages:
                 print(f'\n[DEBUG] Ready to send test message: {test_case}')
-                user_input = input("Send message now? Y/n: ")
-                if user_input.lower() == 'y':
-                    await self.send_test_message(test_case)
-                else:
-                    print('[DEBUG] Skipping sending message.')
-                # Allow time for messages to be processed
-                await asyncio.sleep(1)
+                await self.send_test_message(test_case)
+                # user_input = input("Send message now? Y/n: ")
+                # if user_input.lower() == 'y':
+                #     await self.send_test_message(test_case)
+                # else:
+                #     print('[DEBUG] Skipping sending message.')
+                # # Allow time for messages to be processed
+                # await asyncio.sleep(1)
 
             # After sending all test messages, stop the background tasks
             self.running = False

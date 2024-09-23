@@ -250,6 +250,7 @@ async def main():
                 else:
                     # Discard the message
                     print('[DEBUG] Discarding message from queue because waiting for response')
+                    await message.ack()  # Acknowledge the message
 
         # Start consuming messages
         await eval_client.queue.consume(on_message)

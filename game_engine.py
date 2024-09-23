@@ -215,7 +215,7 @@ class GameEngine:
 
     async def process_message(self, message: aio_pika.IncomingMessage):
         async with message.process():
-            print('[DEBUG] Received message from RabbitMQ queue "update_ge_queue"')
+            print('[DEBUG] Received message from RabbitMQ queue "{UPDATE_GE_QUEUE}"')
             data = json.loads(message.body.decode('utf-8'))
             print(f'[DEBUG] Message content:\n{json.dumps(data, indent=2)}')
 
