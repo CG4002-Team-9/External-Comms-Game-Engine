@@ -88,12 +88,13 @@ class GameEngine:
                 'shield_hp': 0,
                 'deaths': 0,
                 'shields': 3,
+                'opponent_hit': False, # Visualizer shows when opponent is damaged
                 'opponent_visible': False,
                 'opponent_in_rain_bomb': 0,  # Counter for rain bombs
                 'glove_connected': False,
                 'vest_connected': False,
                 'leg_connected': False,
-                'login': False
+                'login': True
             },
             'p2': {
                 'hp': 100,
@@ -102,12 +103,13 @@ class GameEngine:
                 'shield_hp': 0,
                 'deaths': 0,
                 'shields': 3,
+                'opponent_hit': False,
                 'opponent_visible': False,
                 'opponent_in_rain_bomb': 0,
                 'glove_connected': False,
                 'vest_connected': False,
                 'leg_connected': False,
-                'login': False
+                'login': True
             }
         }
 
@@ -211,6 +213,7 @@ class GameEngine:
 
         # Apply remaining damage to opponent's HP
         if damage_to_opponent > 0:
+            player['opponent_hit'] = True
             opponent['hp'] -= damage_to_opponent
             print(f'[DEBUG] Damage to opponent HP: {damage_to_opponent}. HP left: {opponent["hp"]}')
             if opponent['hp'] <= 0:
@@ -221,12 +224,13 @@ class GameEngine:
                 opponent['bullets'] = 6
                 opponent['bombs'] = 2
                 print(f'[DEBUG] Player {opponent_key[-1]} died and respawned.')
-        
+        else:
+            player['opponent_hit'] = False
         return True
 
     async def process_message(self, message: aio_pika.IncomingMessage):
         async with message.process():
-            print('[DEBUG] Received message from RabbitMQ queue "{UPDATE_GE_QUEUE}"')
+            print(f'[DEBUG] Received message from RabbitMQ queue "{UPDATE_GE_QUEUE}"')
             data = json.loads(message.body.decode('utf-8'))
             print(f'[DEBUG] Message content:\n{json.dumps(data, indent=2)}')
 
@@ -242,6 +246,9 @@ class GameEngine:
             if action_performed:
                 # Perform action calculations before updating internal state
                 action_registered = self.perform_action(player_id, action_type, data)
+                if not action_registered:
+                  return
+                
                 # Prepare message to publish
                 mqtt_message = {
                     "game_state": self.game_state,
@@ -301,7 +308,7 @@ class GameEngine:
             print(f'[DEBUG] Connected to MQTT broker at {MQTT_BROKER}:{MQTT_PORT}')
             # Start consuming messages
             await self.update_ge_queue.consume(self.process_message)
-            print('[DEBUG] Started consuming messages from update_ge_queue')
+            print(f'[DEBUG] Started consuming messages from {UPDATE_GE_QUEUE}')
             # Keep the program running
             await asyncio.Future()
 
