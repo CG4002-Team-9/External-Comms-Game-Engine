@@ -94,7 +94,7 @@ class GameEngineTest:
             #     'update': True,
             #     'game_state': {
             #         'p1': {
-            #             'hp': 100,
+            #             'hp': 90,
             #             'bullets': 6,
             #             'bombs': 2,
             #             'shield_hp': 0,

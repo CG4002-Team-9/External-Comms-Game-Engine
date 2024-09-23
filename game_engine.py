@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 import aio_pika
 import aiomqtt
+import purge_queues
 
 # Load environment variables from .env file
 load_dotenv()
@@ -23,11 +24,11 @@ MQTT_BROKER = BROKER
 MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
 
 # RabbitMQ queues
-UPDATE_GE_QUEUE = 'update_ge_queue'
-UPDATE_EVAL_SERVER_QUEUE = 'update_eval_server_queue'  # Queue to publish to when action is true
+UPDATE_EVAL_SERVER_QUEUE = os.getenv('UPDATE_EVAL_SERVER_QUEUE', 'update_eval_server_queue')
+UPDATE_GE_QUEUE = os.getenv('UPDATE_GE_QUEUE', 'update_ge_queue') 
 
 # MQTT topic
-MQTT_TOPIC_UPDATE_EVERYONE = 'update_everyone'
+MQTT_TOPIC_UPDATE_EVERYONE = os.getenv('MQTT_TOPIC_UPDATE_EVERYONE', 'update_everyone')
 
 # Example full schema for messages to and from the game engine
 """
@@ -163,7 +164,7 @@ class GameEngine:
 
         # Handle actions
         if action_type == 'gun':
-            
+            #When player has ammo
             if player['bullets'] > 0:
                 player['bullets'] -= 1
                 if hit:
@@ -225,7 +226,7 @@ class GameEngine:
 
     async def process_message(self, message: aio_pika.IncomingMessage):
         async with message.process():
-            print('[DEBUG] Received message from RabbitMQ queue "update_ge_queue"')
+            print('[DEBUG] Received message from RabbitMQ queue "{UPDATE_GE_QUEUE}"')
             data = json.loads(message.body.decode('utf-8'))
             print(f'[DEBUG] Message content:\n{json.dumps(data, indent=2)}')
 
@@ -248,6 +249,9 @@ class GameEngine:
                     "player_id": player_id
                 }
                 mqtt_message_str = json.dumps(mqtt_message)
+                # Publish to update_eval_server_queue
+                await self.publish_to_update_eval_server_queue(mqtt_message)
+                
                 # Publish to MQTT topic
                 await self.mqtt_client.publish(
                     MQTT_TOPIC_UPDATE_EVERYONE,
@@ -255,12 +259,15 @@ class GameEngine:
                     qos=2
                 )
                 print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
+<<<<<<< HEAD
                 
                 if not action_registered: # We dont want false actions to be sent to the eval server
                     return
                 
                 # Publish to update_eval_server_queue
                 await self.publish_to_update_eval_server_queue(mqtt_message)
+=======
+>>>>>>> main
             elif to_update:
                 # Prepare message to publish
                 mqtt_message = {
@@ -280,6 +287,14 @@ class GameEngine:
                 print('[DEBUG] Updated internal game state without sending any messages')
 
     async def run(self):
+        # Create instance of QueuePurger and purge the queues before running the game engine
+        purger = purge_queues.QueuePurger()
+        print('[DEBUG] Purging queues before starting the game engine...')
+        await purger.run_purge()  # Purge the queues
+        
+        # print the starting game state
+        print(f'[DEBUG] Starting game state: {json.dumps(self.game_state, indent=2)}')
+        
         await self.setup_rabbitmq()
 
         # Set up MQTT client using aiomqtt
