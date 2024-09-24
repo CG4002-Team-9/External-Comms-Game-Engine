@@ -89,6 +89,7 @@ class GameEngine:
                 'deaths': 0,
                 'shields': 3,
                 'opponent_hit': False, # Visualizer shows when opponent is damaged
+                'opponent_shield_hit': False,  # Visualizer shows when opponent's shield is damaged
                 'opponent_visible': False,
                 'opponent_in_rain_bomb': 0,  # Counter for rain bombs
                 'glove_connected': False,
@@ -104,6 +105,7 @@ class GameEngine:
                 'deaths': 0,
                 'shields': 3,
                 'opponent_hit': False,
+                'opponent_shield_hit': False,  # Visualizer shows when opponent's shield is damaged
                 'opponent_visible': False,
                 'opponent_in_rain_bomb': 0,
                 'glove_connected': False,
@@ -211,6 +213,11 @@ class GameEngine:
         else:
             opponent['shield_hp'] = 0
 
+        if damage_to_shield > 0:
+            player['opponent_shield_hit'] = True
+        else:
+            player['opponent_shield_hit'] = False
+        
         # Apply remaining damage to opponent's HP
         if damage_to_opponent > 0:
             player['opponent_hit'] = True
@@ -266,8 +273,6 @@ class GameEngine:
                     qos=2
                 )
                 print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
-                # Publish to update_eval_server_queue
-                await self.publish_to_update_eval_server_queue(mqtt_message)
             elif to_update:
                 # Prepare message to publish
                 mqtt_message = {

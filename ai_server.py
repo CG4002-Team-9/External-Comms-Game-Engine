@@ -18,11 +18,11 @@ PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
 # RabbitMQ queues
-AI_QUEUE = 'ai_queue'
-UPDATE_GE_QUEUE = 'update_ge_queue'  # Queue to publish to when confidence is above threshold
+AI_QUEUE = os.getenv('AI_QUEUE', 'ai_queue')  # Queue to consume messages from
+UPDATE_GE_QUEUE = os.getenv("UPDATE_GE_QUEUE", "update_ge_queue")  # Queue to publish messages to
 
 # Confidence threshold
-CONFIDENCE_THRESHOLD = 0.6  # Adjust as needed
+CONFIDENCE_THRESHOLD = 0.94  # Adjust as needed
 
 # Action mapping from index to action type
 ACTION_MAPPING = {
@@ -103,7 +103,7 @@ class AIServer:
             print('[DEBUG] Received message from ai_queue')
             data = json.loads(message.body.decode('utf-8'))
             print(f'[DEBUG] Message content: {data}')
-
+            return
             # Extract data
             length = data.get('length')
             ax = data.get('ax', [])

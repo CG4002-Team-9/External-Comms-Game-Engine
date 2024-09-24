@@ -57,14 +57,14 @@ class GameEngineTest:
         test_message = {
             'action': True,
             'player_id':1,
-            'action_type': 'logout',
+            'action_type': 'reload',
             'hit': True,  # Added 'hit' field
             'game_state': {
                 'p1': {'opponent_visible': True,
                        'opponent_in_rain_bomb': 0},
                 'p2': {'opponent_visible': True,
                        'opponent_in_rain_bomb': 0,
-                       'login': False
+                       'login': True
                        }
             }
         }
