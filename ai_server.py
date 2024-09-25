@@ -5,8 +5,15 @@ import json
 import os
 from dotenv import load_dotenv
 import aio_pika
-from pynq import Overlay, allocate
+from pynq import Overlay, allocate, PL
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+import pickle
+from sklearn.preprocessing import LabelEncoder
+
+PL.reset()
+
+folder_to_use = "./ai_folder/"
 
 # Load environment variables from .env file
 load_dotenv()
@@ -24,45 +31,37 @@ UPDATE_GE_QUEUE = os.getenv("UPDATE_GE_QUEUE", "update_ge_queue")  # Queue to pu
 # Confidence threshold
 CONFIDENCE_THRESHOLD = 0.94  # Adjust as needed
 
-# Action mapping from index to action type
-ACTION_MAPPING = {
-    0: 'gun',
-    1: 'shield',
-    2: 'bomb',
-    3: 'reload',
-    4: 'basket',
-    5: 'soccer',
-    6: 'volley',
-    7: 'bowl',
-    8: '8',
-    9: '9',
-    10: '10',
-    11: '11',
-    12: '12',
-    13: '13',
-    14: '14',
-    15: '15',
-    16: '16',
-    17: 'basket',
-    18: '18',
-    19: '19',
-    # Add other mappings as per your model's output
-}
+# Load the saved LabelEncoder
+with open(f'{folder_to_use}label_encoder.pkl', 'rb') as file:
+    label_encoder = pickle.load(file)
+
+# Define the scaler to scale between -1 and 1 (to maintain negative values)
+scaler = MinMaxScaler(feature_range=(-1, 1))
+
+# Fit the scaler with the 16-bit signed integer range (this only needs to be done once)
+scaler.fit(np.array([-2**15, 2**15 - 1]).reshape(-1, 1))
+
+def pad_or_truncate(array, target_length=60):
+    if len(array) > target_length:
+        return array[:target_length]
+    elif len(array) < target_length:
+        return array + [0] * (target_length - len(array))
+    else:
+        return array
 
 class ActionClassifier:
     def __init__(self):
-        folder_to_use = "./bitstream/"
         self.ol = Overlay(folder_to_use + 'design_1.bit')
         self.nn = self.ol.gesture_model_0
         self.nn.write(0x0, 0x81)
         self.dma = self.ol.axi_dma_0
         self.dma_send = self.dma.sendchannel
         self.dma_recv = self.dma.recvchannel
-        self.input_stream = allocate(shape=(120,), dtype='float32')
-        self.output_stream = allocate(shape=(20,), dtype='float32')  # Adjusted based on the model output size
+        self.input_stream = allocate(shape=(360,), dtype='float32')
+        self.output_stream = allocate(shape=(7,), dtype='float32')  # Adjusted based on the model output size
 
     def predict(self, input_data):
-        for i in range(120):
+        for i in range(360):
             self.input_stream[i] = input_data[i]
 
         self.dma_send.transfer(self.input_stream)
@@ -103,25 +102,27 @@ class AIServer:
             print('[DEBUG] Received message from ai_queue')
             data = json.loads(message.body.decode('utf-8'))
             print(f'[DEBUG] Message content: {data}')
-            return
             # Extract data
-            length = data.get('length')
-            ax = data.get('ax', [])
-            ay = data.get('ay', [])
-            az = data.get('az', [])
+            ax = pad_or_truncate(data['ax'])
+            ay = pad_or_truncate(data['ay'])
+            az = pad_or_truncate(data['az'])
+            gx = pad_or_truncate(data['gx'])
+            gy = pad_or_truncate(data['gy'])
+            gz = pad_or_truncate(data['gz'])
             player_id = data.get('player_id')
 
-            # Check if data lengths match
-            if length != len(ax) or length != len(ay) or length != len(az):
-                print('[ERROR] Data lengths do not match')
-                return
-
             # Normalize data to [-1, 1]
-            max_value = 32767  # Max value for 16-bit signed integer
-            input_data = np.array(ax + ay + az, dtype=np.float32) / max_value
-
+            # Concatenate all six arrays (ax, ay, az, gx, gy, gz)
+            imu_data = ax + ay + az + gx + gy + gz
+            # print("IMU Data:", imu_data)  # Sanity check
+            imu_data = np.array(imu_data).reshape(-1, 1)  # Reshape for the scaler
+            
+            # Scale the data
+            input_data = scaler.transform(imu_data).flatten()
+            print("input_data Data:", input_data)  # Sanity check
+            
             # Ensure input_data length is 120
-            if len(input_data) != 120:
+            if len(input_data) != 360:
                 print('[ERROR] Input data length is not 120')
                 return
 
@@ -130,7 +131,8 @@ class AIServer:
             try:
                 action_index, confidence = await loop.run_in_executor(
                     None, self.classifier.predict, input_data)
-                print(f'[DEBUG] Predicted action: {action_index}, confidence: {confidence}')
+                action_type = label_encoder.inverse_transform([action_index])[0]
+                print(f'[DEBUG] Predicted action: {action_type}, confidence: {confidence}')
             except Exception as e:
                 print(f'[ERROR] Error during inference: {e}')
                 return
@@ -138,7 +140,7 @@ class AIServer:
             # Check confidence threshold
             if confidence >= CONFIDENCE_THRESHOLD:
                 # Map action index to action name
-                action_type = ACTION_MAPPING.get(action_index, 'unknown')
+                
                 # Prepare message to send to update_ge_queue
                 message_to_send = {
                     'action': True,

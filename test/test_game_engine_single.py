@@ -55,7 +55,7 @@ class GameEngineTest:
 
         # Test case to be sent
         test_message = {
-            'action': True,
+            'update': True,
             'player_id':1,
             'action_type': 'reload',
             'hit': True,  # Added 'hit' field
