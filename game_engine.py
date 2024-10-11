@@ -90,7 +90,7 @@ class GameEngine:
                 'shields': 3,
                 'opponent_hit': False, # Visualizer shows when opponent is damaged
                 'opponent_shield_hit': False,  # Visualizer shows when opponent's shield is damaged
-                'opponent_visible': False,
+                'opponent_visible': True,
                 'opponent_in_rain_bomb': 0,  # Counter for rain bombs
                 'glove_connected': False,
                 'vest_connected': False,
@@ -106,7 +106,7 @@ class GameEngine:
                 'shields': 3,
                 'opponent_hit': False,
                 'opponent_shield_hit': False,  # Visualizer shows when opponent's shield is damaged
-                'opponent_visible': False,
+                'opponent_visible': True,
                 'opponent_in_rain_bomb': 0,
                 'glove_connected': False,
                 'vest_connected': False,
@@ -194,7 +194,7 @@ class GameEngine:
                 player['shield_hp'] = 30
                 print(f'[DEBUG] Player {player_id} activated a shield. Shields left: {player["shields"]}')
         elif action_type == 'logout':
-            player['login'] = False
+            player['login'] = True
         elif action_type in ['basket', 'volley', "soccer", "bowl"]:
             # AI actions inflict damage only if opponent is visible
             if opponent_visible:
@@ -224,7 +224,7 @@ class GameEngine:
             opponent['hp'] -= damage_to_opponent
             print(f'[DEBUG] Damage to opponent HP: {damage_to_opponent}. HP left: {opponent["hp"]}')
             if opponent['hp'] <= 0:
-                opponent['hp'] = 100  # Rebirth with full HP
+                opponent['hp'] = 100 + opponent['hp']# Rebirth with full HP
                 opponent['deaths'] += 1
                 opponent['shields'] = 3
                 opponent['shield_hp'] = 0
@@ -308,7 +308,8 @@ class GameEngine:
             hostname=MQTT_BROKER,
             port=MQTT_PORT,
             username=BROKERUSER,
-            password=PASSWORD
+            password=PASSWORD,
+            keepalive=60
         ) as self.mqtt_client:
             print(f'[DEBUG] Connected to MQTT broker at {MQTT_BROKER}:{MQTT_PORT}')
             # Start consuming messages
