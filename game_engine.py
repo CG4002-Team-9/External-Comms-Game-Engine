@@ -39,7 +39,7 @@ Schema for messages received from 'update_ge_queue' (from various sources):
   "action": false,                # When true, perform calculations and update the game state
   "player_id": 1,                 # ID of the player performing the action
   "action_type": "gun",           # Type of action performed
-  "hit": true,                    # For 'gun' action, indicates if the shot hit the target
+  "hit": true,                    # For 'gun' action, indicates if the shot hit the target, need to make the distinction because gun can shoot without hitting the target (such as in eval server)  
   "game_state": {
     "p1": {
       "opponent_visible": false,
