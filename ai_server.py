@@ -31,6 +31,9 @@ UPDATE_GE_QUEUE = os.getenv("UPDATE_GE_QUEUE", "update_ge_queue")  # Queue to pu
 # Confidence threshold
 CONFIDENCE_THRESHOLD = 0.94  # Adjust as needed
 
+INPUT_LENGTH = 360
+OUTPUT_LENGTH = 9
+
 # Load the saved LabelEncoder
 with open(f'{folder_to_use}label_encoder.pkl', 'rb') as file:
     label_encoder = pickle.load(file)
@@ -57,8 +60,8 @@ class ActionClassifier:
         self.dma = self.ol.axi_dma_0
         self.dma_send = self.dma.sendchannel
         self.dma_recv = self.dma.recvchannel
-        self.input_stream = allocate(shape=(360,), dtype='float32')
-        self.output_stream = allocate(shape=(7,), dtype='float32')  # Adjusted based on the model output size
+        self.input_stream = allocate(shape=(INPUT_LENGTH,), dtype='float32')
+        self.output_stream = allocate(shape=(OUTPUT_LENGTH,), dtype='float32')  # Adjusted based on the model output size
 
     def predict(self, input_data):
         for i in range(360):
@@ -140,6 +143,9 @@ class AIServer:
             # Check confidence threshold
             if confidence >= CONFIDENCE_THRESHOLD:
                 # Map action index to action name
+                if action_type not in ['basket', 'bowl', 'volley', 'soccer', 'reload', 'logout', 'shield', 'bomb']:
+                    print(f'[ERROR] Invalid action type: {action_type}')
+                    return
                 
                 # Prepare message to send to update_ge_queue
                 message_to_send = {

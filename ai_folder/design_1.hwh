@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Oct 12 03:20:38 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 13 10:39:33 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="zynquplus" DEVICE="xczu3eg" NAME="design_1" PACKAGE="sbva484" SPEEDGRADE="-2"/>
 
@@ -2635,7 +2635,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="2113774151" FULLNAME="/gesture_model_0" HWVERSION="1.0" INSTANCE="gesture_model_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="gesture_model" VLNV="xilinx.com:hls:gesture_model:1.0">
+    <MODULE COREREVISION="2113776028" FULLNAME="/gesture_model_0" HWVERSION="1.0" INSTANCE="gesture_model_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="gesture_model" VLNV="xilinx.com:hls:gesture_model:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="read-write" INTERFACE="s_axi_control" NAME="Reg" RANGE="65536" USAGE="register">
@@ -2857,10 +2857,10 @@
         <PARAMETER NAME="C_S_AXI_CONTROL_ADDR_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_gesture_model_0_2"/>
-        <PARAMETER NAME="II" VALUE="446044"/>
+        <PARAMETER NAME="II" VALUE="446151"/>
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="446043"/>
+        <PARAMETER NAME="latency" VALUE="446150"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_BASEADDR" VALUE="0x80010000"/>

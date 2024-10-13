@@ -144,6 +144,45 @@ class GameEngine:
             if player_key in incoming_game_state:
                 self.game_state[player_key].update(incoming_game_state[player_key])
 
+    def revive_player(self, player_id):
+        player_key = f'p{player_id}'
+        player = self.game_state[player_key]
+        player['hp'] = 100
+        player['deaths'] += 1
+        player['shields'] = 3
+        player['shield_hp'] = 0
+        player['bullets'] = 6
+        player['bombs'] = 2
+        print(f'[DEBUG] Player {player_key[-1]} died and respawned.')
+    
+    def perform_damage(self, player_id, damage):
+        player_key = f'p{player_id}'
+        player = self.game_state[player_key]
+        
+        player_hit = False
+        player_shield_hit = False
+        
+        # perform damage to shield first
+        if player['shield_hp'] > 0:
+            damage_to_shield = min(damage, player['shield_hp'])
+            if damage_to_shield > 0:
+                player_shield_hit = True
+            player['shield_hp'] -= damage_to_shield
+            damage -= damage_to_shield
+            print(f'[DEBUG] Player {player_id}: Damage to shield: {damage_to_shield}. Shield HP left: {player["shield_hp"]}')
+        
+        # perform damage to HP
+        if damage > 0:
+            player_hit = True
+            
+        player['hp'] -= damage
+        print(f'[DEBUG] Player {player_id}: Damage to HP: {damage}. HP left: {player["hp"]}')
+        if player['hp'] <= 0:
+            self.revive_player(player_id)
+        
+        return player_hit, player_shield_hit
+        
+    
     def perform_action(self, player_id, action_type, data):
         # If either player is not logged in, do not perform any actions for both players
         if not self.game_state['p1']['login'] or not self.game_state['p2']['login']:
@@ -162,17 +201,27 @@ class GameEngine:
         opponent_in_rain_bomb = player.get('opponent_in_rain_bomb', 0)
         hit = data.get('hit', False)
 
-        # Initialize damage variables
-        damage_to_opponent = 0
-        damage_to_shield = 0
-
+        opponent_hit = False
+        opponent_shield_hit = False
+        
+        # Handle rain bomb damage
+        if opponent_visible and opponent_in_rain_bomb > 0:
+            rainbomb_damage = opponent_in_rain_bomb * 5
+            opponent_hit, opponent_shield_hit = (
+                opponent_hit or (result := self.perform_damage(opponent_key[-1], rainbomb_damage))[0],
+                opponent_shield_hit or result[1]
+            )
+            print(f'[DEBUG] Player {opponent_key[-1]}: Rain bomb damage: {rainbomb_damage}')
+        
+        new_damage = 0
+        
         # Handle actions
         if action_type == 'gun':
             #When player has ammo
             if player['bullets'] > 0:
                 player['bullets'] -= 1
                 if hit:
-                    damage_to_opponent = 5  # Gun shot results in -5 HP
+                    new_damage = 5
                 print(f'[DEBUG] Player {player_id} fired a gun. Bullets left: {player["bullets"]}. Hit: {hit}')
         elif action_type == 'bomb':
             if player['bombs'] > 0 and opponent_visible:
@@ -180,7 +229,7 @@ class GameEngine:
                 player['bombs'] -= 1
                 print(f'[DEBUG] Player {player_id} threw a bomb. Bombs left: {player["bombs"]}')
                 # Inflict immediate damage
-                damage_to_opponent = 5
+                new_damage = 5
         elif action_type == 'reload':
             # Can only reload if bullets are zero
             if player['bullets'] == 0:
@@ -198,41 +247,16 @@ class GameEngine:
         elif action_type in ['basket', 'volley', "soccer", "bowl"]:
             # AI actions inflict damage only if opponent is visible
             if opponent_visible:
-                damage_to_opponent = 10  # All other attacks result in -10 HP
-        # Handle rain damage
-        if opponent_in_rain_bomb > 0 and opponent_visible:
-            damage_to_opponent += 5 * opponent_in_rain_bomb  # -5 HP per rain bomb active
+                new_damage = 10
 
-        # Apply damage to opponent's shield first
-        if opponent['shield_hp'] > 0:
-            if damage_to_opponent > 0:
-                damage_to_shield = min(damage_to_opponent, opponent['shield_hp'])
-                opponent['shield_hp'] -= damage_to_shield
-                damage_to_opponent -= damage_to_shield
-                print(f'[DEBUG] Damage to shield: {damage_to_shield}. Shield HP left: {opponent["shield_hp"]}')
-        else:
-            opponent['shield_hp'] = 0
-
-        if damage_to_shield > 0:
-            player['opponent_shield_hit'] = True
-        else:
-            player['opponent_shield_hit'] = False
+        opponent_hit, opponent_shield_hit = (
+            opponent_hit or (result := self.perform_damage(opponent_key[-1], new_damage))[0],
+            opponent_shield_hit or result[1]
+        )
         
-        # Apply remaining damage to opponent's HP
-        if damage_to_opponent > 0:
-            player['opponent_hit'] = True
-            opponent['hp'] -= damage_to_opponent
-            print(f'[DEBUG] Damage to opponent HP: {damage_to_opponent}. HP left: {opponent["hp"]}')
-            if opponent['hp'] <= 0:
-                opponent['hp'] = 100 + opponent['hp']# Rebirth with full HP
-                opponent['deaths'] += 1
-                opponent['shields'] = 3
-                opponent['shield_hp'] = 0
-                opponent['bullets'] = 6
-                opponent['bombs'] = 2
-                print(f'[DEBUG] Player {opponent_key[-1]} died and respawned.')
-        else:
-            player['opponent_hit'] = False
+        player['opponent_hit'] = opponent_hit
+        player['opponent_shield_hit'] = opponent_shield_hit
+        
         return True
 
     async def process_message(self, message: aio_pika.IncomingMessage):
