@@ -175,7 +175,7 @@ class GameEngine:
         if damage > 0:
             player_hit = True
             
-        player['hp'] -= damage
+        player['hp'] = max(0, player['hp'] - damage)
         print(f'[DEBUG] Player {player_id}: Damage to HP: {damage}. HP left: {player["hp"]}')
         if player['hp'] <= 0:
             self.revive_player(player_id)
@@ -206,12 +206,11 @@ class GameEngine:
         
         # Handle rain bomb damage
         if opponent_visible and opponent_in_rain_bomb > 0:
-            rainbomb_damage = opponent_in_rain_bomb * 5
-            opponent_hit, opponent_shield_hit = (
-                opponent_hit or (result := self.perform_damage(opponent_key[-1], rainbomb_damage))[0],
-                opponent_shield_hit or result[1]
-            )
-            print(f'[DEBUG] Player {opponent_key[-1]}: Rain bomb damage: {rainbomb_damage}')
+            for _ in range(opponent_in_rain_bomb):
+                hit, shield_hit = self.perform_damage(opponent_key[-1], 5)
+                opponent_hit = hit or opponent_hit
+                opponent_shield_hit = shield_hit or opponent_shield_hit
+                print(f'[DEBUG] Player {opponent_key[-1]}: Rain bomb damage: {5}')
         
         new_damage = 0
         
@@ -249,10 +248,9 @@ class GameEngine:
             if opponent_visible:
                 new_damage = 10
 
-        opponent_hit, opponent_shield_hit = (
-            opponent_hit or (result := self.perform_damage(opponent_key[-1], new_damage))[0],
-            opponent_shield_hit or result[1]
-        )
+        hit, shield_hit = self.perform_damage(opponent_key[-1], new_damage)
+        opponent_hit = hit or opponent_hit
+        opponent_shield_hit = shield_hit or opponent_shield_hit
         
         player['opponent_hit'] = opponent_hit
         player['opponent_shield_hit'] = opponent_shield_hit
