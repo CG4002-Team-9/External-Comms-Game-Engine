@@ -297,6 +297,13 @@ class GameEngine:
                 print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
             elif to_update:
                 # Prepare message to publish
+                # if to_update, hit and shield_hit are not relevant, change to False
+                
+                self.game_state['p1']['opponent_hit'] = False
+                self.game_state['p1']['opponent_shield_hit'] = False
+                self.game_state['p2']['opponent_hit'] = False
+                self.game_state['p2']['opponent_shield_hit'] = False
+                
                 mqtt_message = {
                     "game_state": self.game_state
                 }
