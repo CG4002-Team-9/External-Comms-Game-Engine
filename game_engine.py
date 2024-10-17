@@ -127,7 +127,19 @@ class GameEngine:
         
         self.exchange = await self.channel.declare_exchange(UPDATE_EVERYONE_EXCHANGE, aio_pika.ExchangeType.FANOUT, durable=True)
         print(f'[DEBUG] Connected to RabbitMQ broker at {BROKER}:{RABBITMQ_PORT}')
-
+        
+        # publish game state once to everyone
+        update_everyone_message = {
+            "game_state": self.game_state
+        }
+        update_everyone_message_string = json.dumps(update_everyone_message)
+        # Publish to Exchange
+        await self.exchange.publish(
+            aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
+            routing_key=''
+        )   
+        print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
+        
     async def publish_to_update_eval_server_queue(self, message):
         # Publish message to update_eval_server_queue
         message_body = json.dumps(message).encode('utf-8')
