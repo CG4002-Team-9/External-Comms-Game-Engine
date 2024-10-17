@@ -37,38 +37,21 @@ ECOSYSTEM_FILE="/home/${REMOTE_USER}/.external_comms/ecosystem.config.js"  # Ass
 
 # Establish SSH Tunnel and keep it open until Ctrl+C
 echo "Establishing reverse SSH tunnel on port ${PORT}..."
-ssh -fN -R ${PORT}:localhost:${PORT} ${REMOTE_USER}@${REMOTE_HOST}
-echo "SSH tunnel established."
+ssh -tt -R 8888:localhost:${PORT} ${REMOTE_USER}@${REMOTE_HOST} <<EOF
+	set -e
 
-# ----------------------------- #
-#      Remote Host Setup        #
-# ----------------------------- #
+	source ~/.bashrc || source ~/.profile
 
-echo "Configuring remote host and starting PM2..."
+	cd ${REMOTE_SCRIPTS_DIR}
 
-# Execute commands on the remote host using a single SSH session
-ssh -tt ${REMOTE_USER}@${REMOTE_HOST} <<EOF
-    set -e
+	export PORT=${PORT}
+	export SECRET_PASSWORD=${PASSWORD}
 
-    # Load the environment from .bashrc or .profile to get node/npm/pm2 paths
-    source ~/.bashrc || source ~/.profile
+	echo "Starting applications with PM2..."
+	pm2 start ${ECOSYSTEM_FILE}
 
-    # Navigate to the scripts directory
-    cd ${REMOTE_SCRIPTS_DIR}
-
-    # Export environment variables for PM2
-    export PORT=${PORT}
-    export SECRET_PASSWORD=${PASSWORD}
-
-    # Start the applications using the pre-existing PM2 ecosystem file
-    echo "Starting applications with PM2..."
-    pm2 start ${ECOSYSTEM_FILE}
-
-    # Save the PM2 process list and ensure it resurrects on reboot
-    pm2 save
-    pm2 startup systemd -u ${REMOTE_USER} --hp /home/${REMOTE_USER}
-
-    echo "PM2 has been configured and started the applications."
+	echo "PM2 has been configured and started the applications."
 EOF
 
-echo "Setup complete. Press Ctrl+C to stop the SSH tunnel."
+echo "SSH tunnel killed"
+

@@ -19,16 +19,12 @@ PASSWORD = os.getenv('PASSWORD')
 # Abstracted RabbitMQ port
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
-# MQTT broker settings (same as RabbitMQ)
-MQTT_BROKER = BROKER
-MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
-
 # RabbitMQ queues
 UPDATE_EVAL_SERVER_QUEUE = os.getenv('UPDATE_EVAL_SERVER_QUEUE', 'update_eval_server_queue')
 UPDATE_GE_QUEUE = os.getenv('UPDATE_GE_QUEUE', 'update_ge_queue') 
 
-# MQTT topic
-MQTT_TOPIC_UPDATE_EVERYONE = os.getenv('MQTT_TOPIC_UPDATE_EVERYONE', 'update_everyone')
+# RabbitMQ exchanges
+UPDATE_EVERYONE_EXCHANGE = os.getenv('UPDATE_EVERYONE_EXCHANGE', 'update_everyone_exchange')
 
 # Example full schema for messages to and from the game engine
 """
@@ -78,7 +74,8 @@ class GameEngine:
         self.rabbitmq_connection = None
         self.channel = None
         self.update_ge_queue = None
-        self.mqtt_client = None
+        self.exchange = None
+        self.update_everyone_queue = None
         # Initialize internal game state
         self.game_state = {
             'p1': {
@@ -127,6 +124,8 @@ class GameEngine:
         self.channel = await self.rabbitmq_connection.channel()
         # Declare the update_ge_queue
         self.update_ge_queue = await self.channel.declare_queue(UPDATE_GE_QUEUE, durable=True)
+        
+        self.exchange = await self.channel.declare_exchange(UPDATE_EVERYONE_EXCHANGE, aio_pika.ExchangeType.FANOUT, durable=True)
         print(f'[DEBUG] Connected to RabbitMQ broker at {BROKER}:{RABBITMQ_PORT}')
 
     async def publish_to_update_eval_server_queue(self, message):
@@ -272,6 +271,10 @@ class GameEngine:
             # Update internal game state with non-action-related info
             self.update_internal_game_state(incoming_game_state)
 
+            # Hacky eval
+            # self.game_state['p1']['opponent_visible'] = True
+            # self.game_state['p2']['opponent_visible'] = True
+            
             if action_performed:
                 # Perform action calculations before updating internal state
                 action_registered = self.perform_action(player_id, action_type, data)
@@ -279,36 +282,34 @@ class GameEngine:
                   return
                 
                 # Prepare message to publish
-                mqtt_message = {
+                update_everyone_message = {
                     "game_state": self.game_state,
                     "action": action_type,
                     "player_id": player_id
                 }
-                mqtt_message_str = json.dumps(mqtt_message)
+                update_everyone_message_string = json.dumps(update_everyone_message)
                 # Publish to update_eval_server_queue
-                await self.publish_to_update_eval_server_queue(mqtt_message)
+                await self.publish_to_update_eval_server_queue(update_everyone_message)
                 
-                # Publish to MQTT topic
-                await self.mqtt_client.publish(
-                    MQTT_TOPIC_UPDATE_EVERYONE,
-                    mqtt_message_str.encode('utf-8'),
-                    qos=2
+                # Publish to Exchange
+                await self.exchange.publish(
+                    aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
+                    routing_key=''
                 )
-                print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
+                print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
             elif to_update:
                 # Prepare message to publish
                 
-                mqtt_message = {
+                update_everyone_message = {
                     "game_state": self.game_state
                 }
-                mqtt_message_str = json.dumps(mqtt_message)
-                # Publish to MQTT topic
-                await self.mqtt_client.publish(
-                    MQTT_TOPIC_UPDATE_EVERYONE,
-                    mqtt_message_str.encode('utf-8'),
-                    qos=2
+                update_everyone_message_string = json.dumps(update_everyone_message)
+                # Publish to Exchange
+                await self.exchange.publish(
+                    aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
+                    routing_key=''
                 )
-                print(f'[DEBUG] Published message to MQTT topic {MQTT_TOPIC_UPDATE_EVERYONE}: {json.dumps(mqtt_message, indent = 2)}')
+                print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
             else:
                 # Only update internal game state without sending messages
                 print(f'Game state updated internally: {json.dumps(self.game_state, indent=2)}')
@@ -331,21 +332,11 @@ class GameEngine:
         
         await self.setup_rabbitmq()
 
-        # Set up MQTT client using aiomqtt
-        print('[DEBUG] Connecting to MQTT broker...')
-        async with aiomqtt.Client(
-            hostname=MQTT_BROKER,
-            port=MQTT_PORT,
-            username=BROKERUSER,
-            password=PASSWORD,
-            keepalive=60
-        ) as self.mqtt_client:
-            print(f'[DEBUG] Connected to MQTT broker at {MQTT_BROKER}:{MQTT_PORT}')
-            # Start consuming messages
-            await self.update_ge_queue.consume(self.process_message)
-            print(f'[DEBUG] Started consuming messages from {UPDATE_GE_QUEUE}')
-            # Keep the program running
-            await asyncio.Future()
+        # Start consuming messages
+        await self.update_ge_queue.consume(self.process_message)
+        print(f'[DEBUG] Started consuming messages from {UPDATE_GE_QUEUE}')
+        # Keep the program running
+        await asyncio.Future()
 
 if __name__ == '__main__':
     game_engine = GameEngine()

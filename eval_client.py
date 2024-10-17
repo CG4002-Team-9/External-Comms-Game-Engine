@@ -21,8 +21,8 @@ PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
 # Retrieve PORT and SECRET_KEY from environment variables
-PORT = int(os.getenv('PORT', '54321'))
-SECRET_KEY = os.getenv('SECRET_PASSWORD', '1234567812345678')
+PORT = 8888
+SECRET_KEY = "1234567812345678"
 
 # For RabbitMQ
 UPDATE_EVAL_SERVER_QUEUE = os.getenv('UPDATE_EVAL_SERVER_QUEUE', 'update_eval_server_queue')
@@ -88,6 +88,7 @@ class EvalClient:
         self.channel = None
         self.queue = None
         self.update_ge_queue = None
+        self.exchange = None
         self.game_server_in_error = 0
 
     async def connect(self):
@@ -156,6 +157,7 @@ class EvalClient:
         self.queue = await self.channel.declare_queue(UPDATE_EVAL_SERVER_QUEUE, durable=True)
         # Declare the update_ge_queue for publishing messages
         self.update_ge_queue = await self.channel.declare_queue(UPDATE_GE_QUEUE, durable=True)
+
         print(f'[DEBUG] Connected to RabbitMQ broker at {BROKER}')
 
     async def publish_to_update_ge_queue(self, message):
