@@ -29,13 +29,13 @@ AI_QUEUE = os.getenv('AI_QUEUE', 'ai_queue')  # Queue to consume messages from
 UPDATE_GE_QUEUE = os.getenv("UPDATE_GE_QUEUE", "update_ge_queue")  # Queue to publish messages to
 
 # Confidence threshold
-CONFIDENCE_THRESHOLD = 0.94  # Adjust as needed
+CONFIDENCE_THRESHOLD = 0.90  # Adjust as needed
 
 INPUT_LENGTH = 360
-OUTPUT_LENGTH = 9
+OUTPUT_LENGTH = 10
 
 # Load the saved LabelEncoder
-with open(f'{folder_to_use}label_encoder.pkl', 'rb') as file:
+with open(f'{folder_to_use}label_encoder_2.pkl', 'rb') as file:
     label_encoder = pickle.load(file)
 
 # Define the scaler to scale between -1 and 1 (to maintain negative values)
@@ -54,7 +54,7 @@ def pad_or_truncate(array, target_length=60):
 
 class ActionClassifier:
     def __init__(self):
-        self.ol = Overlay(folder_to_use + 'design_1.bit')
+        self.ol = Overlay(folder_to_use + 'design_2.bit')
         self.nn = self.ol.gesture_model_0
         self.nn.write(0x0, 0x81)
         self.dma = self.ol.axi_dma_0

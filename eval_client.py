@@ -88,6 +88,7 @@ class EvalClient:
         self.channel = None
         self.queue = None
         self.update_ge_queue = None
+        self.game_server_in_error = 0
 
     async def connect(self):
         self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -236,6 +237,10 @@ async def main():
                     waiting_for_response_event.set()
                     # Now wait for the response
                     try:
+                        while (eval_client.game_server_in_error > 0):
+                            game_state = await eval_client.recv_game_state()
+                            print(f"extra game_state is {game_state}")
+                            eval_client.game_server_in_error -= 1
                         game_state = await eval_client.recv_game_state()
                         print('[DEBUG] Received response from server')
                         # After receiving response, publish to update_ge_queue
@@ -245,6 +250,7 @@ async def main():
                         }
                         await eval_client.publish_to_update_ge_queue(update_message)
                     except Exception as e:
+                        eval_client.game_server_in_error += 1
                         print(f'[ERROR] Error receiving game state: {e}')
                     waiting_for_response_event.clear()
                 else:
