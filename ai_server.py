@@ -31,12 +31,20 @@ UPDATE_GE_QUEUE = os.getenv("UPDATE_GE_QUEUE", "update_ge_queue")  # Queue to pu
 # Confidence threshold
 CONFIDENCE_THRESHOLD = 0.90  # Adjust as needed
 
-INPUT_LENGTH = 360
-OUTPUT_LENGTH = 10
+TARGET_LENGTH_HAND = 60
+INPUT_LENGTH_HAND = 360
+OUTPUT_LENGTH_HAND = 10
+
+TARGET_LENGTH_LEG = 40
+INPUT_LENGTH_LEG = 240
+OUTPUT_LENGTH_LEG = 4
 
 # Load the saved LabelEncoder
-with open(f'{folder_to_use}label_encoder_2.pkl', 'rb') as file:
-    label_encoder = pickle.load(file)
+with open(f'{folder_to_use}label_encoder.pkl', 'rb') as file:
+    label_encoder_hand = pickle.load(file)
+    
+with open(f'{folder_to_use}label_encoder_leg.pkl', 'rb') as file:
+    label_encoder_leg = pickle.load(file)
 
 # Define the scaler to scale between -1 and 1 (to maintain negative values)
 scaler = MinMaxScaler(feature_range=(-1, 1))
@@ -54,18 +62,31 @@ def pad_or_truncate(array, target_length=60):
 
 class ActionClassifier:
     def __init__(self):
-        self.ol = Overlay(folder_to_use + 'design_2.bit')
+        self.ol = Overlay(folder_to_use + 'combined.bit')
         self.nn = self.ol.gesture_model_0
         self.nn.write(0x0, 0x81)
         self.dma = self.ol.axi_dma_0
         self.dma_send = self.dma.sendchannel
         self.dma_recv = self.dma.recvchannel
-        self.input_stream = allocate(shape=(INPUT_LENGTH,), dtype='float32')
-        self.output_stream = allocate(shape=(OUTPUT_LENGTH,), dtype='float32')  # Adjusted based on the model output size
+        self.input_stream_hand = allocate(shape=(INPUT_LENGTH_HAND + 1,), dtype='float32')
+        self.output_stream_hand = allocate(shape=(OUTPUT_LENGTH_HAND,), dtype='float32')  # Adjusted based on the model output size
+        self.input_stream_leg = allocate(shape=(INPUT_LENGTH_LEG + 1,), dtype='float32')
+        self.output_stream_leg = allocate(shape=(OUTPUT_LENGTH_LEG,), dtype='float32')  # Adjusted based on the model output size
 
-    def predict(self, input_data):
-        for i in range(360):
-            self.input_stream[i] = input_data[i]
+    def predict(self, input_data, device):
+        
+        if device == 'glove':
+            self.input_stream = self.input_stream_hand
+            self.output_stream = self.output_stream_hand
+            self.input_stream[0] = 1.0
+            for i in range(1, INPUT_LENGTH_HAND):
+                self.input_stream[i] = input_data[i]
+        elif device == 'leg':
+            self.input_stream = self.input_stream_leg
+            self.output_stream = self.output_stream_leg
+            self.input_stream[0] = 0
+            for i in range(1, INPUT_LENGTH_LEG):
+                self.input_stream[i] = input_data[i]
 
         self.dma_send.transfer(self.input_stream)
         self.dma_send.wait()
@@ -102,16 +123,31 @@ class AIServer:
 
     async def process_message(self, message: aio_pika.IncomingMessage):
         async with message.process():
+            
             print('[DEBUG] Received message from ai_queue')
             data = json.loads(message.body.decode('utf-8'))
             print(f'[DEBUG] Message content: {data}')
+            
+            device = data.get('imu_device')
+            
+            if device == 'glove':
+                target_length = TARGET_LENGTH_HAND
+                input_length = INPUT_LENGTH_HAND
+                output_length = OUTPUT_LENGTH_HAND
+                label_encoder = label_encoder_hand
+            elif device == 'leg':
+                target_length = TARGET_LENGTH_LEG
+                input_length = INPUT_LENGTH_LEG
+                output_length = OUTPUT_LENGTH_LEG
+                label_encoder = label_encoder_leg
+            
             # Extract data
-            ax = pad_or_truncate(data['ax'])
-            ay = pad_or_truncate(data['ay'])
-            az = pad_or_truncate(data['az'])
-            gx = pad_or_truncate(data['gx'])
-            gy = pad_or_truncate(data['gy'])
-            gz = pad_or_truncate(data['gz'])
+            ax = pad_or_truncate(data['ax'], target_length)
+            ay = pad_or_truncate(data['ay'], target_length)
+            az = pad_or_truncate(data['az'], target_length)
+            gx = pad_or_truncate(data['gx'], target_length)
+            gy = pad_or_truncate(data['gy'], target_length)
+            gz = pad_or_truncate(data['gz'], target_length)
             player_id = data.get('player_id')
 
             # Normalize data to [-1, 1]
@@ -124,16 +160,16 @@ class AIServer:
             input_data = scaler.transform(imu_data).flatten()
             print("input_data Data:", input_data)  # Sanity check
             
-            # Ensure input_data length is 120
-            if len(input_data) != 360:
-                print('[ERROR] Input data length is not 120')
+            # Ensure input_data length is correct
+            if len(input_data) != input_length:
+                print(f'[ERROR] Input data length is not {input_length}')
                 return
 
             # Run inference in executor to avoid blocking event loop
             loop = asyncio.get_running_loop()
             try:
                 action_index, confidence = await loop.run_in_executor(
-                    None, self.classifier.predict, input_data)
+                    None, self.classifier.predict, input_data, device)
                 action_type = label_encoder.inverse_transform([action_index])[0]
                 print(f'[DEBUG] Predicted action: {action_type}, confidence: {confidence}')
             except Exception as e:
