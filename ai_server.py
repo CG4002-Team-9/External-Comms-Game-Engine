@@ -28,6 +28,9 @@ RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 AI_QUEUE = os.getenv('AI_QUEUE', 'ai_queue')  # Queue to consume messages from
 UPDATE_GE_QUEUE = os.getenv("UPDATE_GE_QUEUE", "update_ge_queue")  # Queue to publish messages to
 
+# RabbitMQ exchanges
+UPDATE_PREDICTIONS_EXCHANGE = os.getenv("UPDATE_PREDICTIONS_EXCHANGE", "update_predictions_exchange")
+
 # Confidence threshold
 CONFIDENCE_THRESHOLD = 0.90  # Adjust as needed
 
@@ -105,6 +108,7 @@ class AIServer:
         self.rabbitmq_connection = None
         self.channel = None
         self.ai_queue = None
+        self.exchange = None
         self.classifier = ActionClassifier()
 
     async def setup_rabbitmq(self):
@@ -119,6 +123,9 @@ class AIServer:
         self.channel = await self.rabbitmq_connection.channel()
         # Declare the ai_queue
         self.ai_queue = await self.channel.declare_queue(AI_QUEUE, durable=True)
+        
+        # Declare the exchange and queue 
+        self.exchange = await self.channel.declare_exchange(UPDATE_PREDICTIONS_EXCHANGE, aio_pika.ExchangeType.FANOUT, durable=True)
         print(f'[DEBUG] Connected to RabbitMQ broker at {BROKER}:{RABBITMQ_PORT}')
 
     async def process_message(self, message: aio_pika.IncomingMessage):
@@ -181,24 +188,39 @@ class AIServer:
                 # Map action index to action name
                 if action_type not in ['basket', 'bowl', 'volley', 'soccer', 'reload', 'logout', 'shield', 'bomb']:
                     print(f'[ERROR] Invalid action type: {action_type}')
-                    return
-                
-                # Prepare message to send to update_ge_queue
-                message_to_send = {
-                    'action': True,
-                    'player_id': player_id,
-                    'action_type': action_type
-                    # Include additional data if necessary
-                }
-                # Publish message to update_ge_queue
-                message_body = json.dumps(message_to_send).encode('utf-8')
-                await self.channel.default_exchange.publish(
-                    aio_pika.Message(body=message_body),
-                    routing_key=UPDATE_GE_QUEUE,
-                )
-                print(f'[DEBUG] Published message to {UPDATE_GE_QUEUE}: {message_to_send}')
+                else:
+                    # Prepare message to send to update_ge_queue
+                    message_to_send = {
+                        'action': True,
+                        'player_id': player_id,
+                        'action_type': action_type
+                        # Include additional data if necessary
+                    }
+                    # Publish message to update_ge_queue
+                    message_body = json.dumps(message_to_send).encode('utf-8')
+                    await self.channel.default_exchange.publish(
+                        aio_pika.Message(body=message_body),
+                        routing_key=UPDATE_GE_QUEUE,
+                    )
+                    print(f'[DEBUG] Published message to {UPDATE_GE_QUEUE}: {message_to_send}')
             else:
                 print('[DEBUG] Confidence below threshold, prediction discarded')
+            
+            update_predictions_message = {
+                "player_id": player_id,
+                "action_type": action_type,
+                "confidence": float(confidence)
+            }
+            
+            update_predictions_string = json.dumps(update_predictions_message)
+            
+            await self.exchange.publish(
+                aio_pika.Message(body=update_predictions_string.encode('utf-8')),
+                routing_key=''
+            )
+            print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_PREDICTIONS_EXCHANGE}": {json.dumps(update_predictions_message, indent = 2)}')
+            
+            
 
     async def run(self):
         await self.setup_rabbitmq()

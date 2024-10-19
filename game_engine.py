@@ -75,7 +75,6 @@ class GameEngine:
         self.channel = None
         self.update_ge_queue = None
         self.exchange = None
-        self.update_everyone_queue = None
         # Initialize internal game state
         self.game_state = {
             'p1': {
