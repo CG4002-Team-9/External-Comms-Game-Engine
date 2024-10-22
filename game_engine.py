@@ -26,6 +26,8 @@ UPDATE_GE_QUEUE = os.getenv('UPDATE_GE_QUEUE', 'update_ge_queue')
 # RabbitMQ exchanges
 UPDATE_EVERYONE_EXCHANGE = os.getenv('UPDATE_EVERYONE_EXCHANGE', 'update_everyone_exchange')
 
+DEBUG = False
+
 # Example full schema for messages to and from the game engine
 """
 Schema for messages received from 'update_ge_queue' (from various sources):
@@ -86,7 +88,7 @@ class GameEngine:
                 'shields': 3,
                 'opponent_hit': False, # Visualizer shows when opponent is damaged
                 'opponent_shield_hit': False,  # Visualizer shows when opponent's shield is damaged
-                'opponent_visible': True,
+                'opponent_visible': DEBUG,
                 'opponent_in_rain_bomb': 0,  # Counter for rain bombs
                 'glove_connected': False,
                 'vest_connected': False,
@@ -102,7 +104,7 @@ class GameEngine:
                 'shields': 3,
                 'opponent_hit': False,
                 'opponent_shield_hit': False,  # Visualizer shows when opponent's shield is damaged
-                'opponent_visible': True,
+                'opponent_visible': DEBUG,
                 'opponent_in_rain_bomb': 0,
                 'glove_connected': False,
                 'vest_connected': False,
@@ -129,7 +131,8 @@ class GameEngine:
         
         # publish game state once to everyone
         update_everyone_message = {
-            "game_state": self.game_state
+            "game_state": self.game_state,
+            "update": True
         }
         update_everyone_message_string = json.dumps(update_everyone_message)
         # Publish to Exchange
@@ -252,7 +255,7 @@ class GameEngine:
                 player['shield_hp'] = 30
                 print(f'[DEBUG] Player {player_id} activated a shield. Shields left: {player["shields"]}')
         elif action_type == 'logout':
-            player['login'] = True
+            player['login'] = DEBUG
         elif action_type in ['basket', 'volley', "soccer", "bowl"]:
             # AI actions inflict damage only if opponent is visible
             if opponent_visible:
@@ -282,9 +285,9 @@ class GameEngine:
             # Update internal game state with non-action-related info
             self.update_internal_game_state(incoming_game_state)
 
-            # Hacky eval
-            # self.game_state['p1']['opponent_visible'] = True
-            # self.game_state['p2']['opponent_visible'] = True
+            if DEBUG:
+                self.game_state['p1']['opponent_visible'] = True
+                self.game_state['p2']['opponent_visible'] = True
             
             if action_performed:
                 # Perform action calculations before updating internal state
