@@ -200,7 +200,7 @@ class GameEngine:
         display = False
         
         # If either player is not logged in, do not perform any actions for both players
-        if not self.game_state['p1']['login'] or not self.game_state['p2']['login']:
+        if not self.game_state['p1']['login'] and not self.game_state['p2']['login']:
             print('[DEBUG] Cannot perform actions when one or both players are not logged in.')
             return False, display
         
@@ -320,14 +320,20 @@ class GameEngine:
                     update_everyone_message["player_id"] = player_id
                     
                 update_everyone_message_string = json.dumps(update_everyone_message)
-                # Publish to update_eval_server_queue
-                await self.publish_to_update_eval_server_queue(update_everyone_message)
                 
                 # Publish to Exchange
                 await self.exchange.publish(
                     aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
                     routing_key=''
                 )
+                
+                update_everyone_message["action"] = action_type
+                update_everyone_message["player_id"] = player_id
+                
+                # Publish to update_eval_server_queue
+                await self.publish_to_update_eval_server_queue(update_everyone_message)
+                
+                
                 print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
             elif to_update:
                 # Prepare message to publish
