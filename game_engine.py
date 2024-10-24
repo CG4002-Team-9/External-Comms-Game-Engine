@@ -197,10 +197,14 @@ class GameEngine:
         
     
     def perform_action(self, player_id, action_type, data):
+        display = False
+        
         # If either player is not logged in, do not perform any actions for both players
         if not self.game_state['p1']['login'] or not self.game_state['p2']['login']:
             print('[DEBUG] Cannot perform actions when one or both players are not logged in.')
-            return False
+            return False, display
+        
+        
         
         # Perform calculations based on action_type
         player_key = f'p{player_id}'
@@ -232,21 +236,28 @@ class GameEngine:
             #When player has ammo
             if player['bullets'] > 0:
                 player['bullets'] -= 1
+                display = True
                 if hit:
                     new_damage = 5
                 print(f'[DEBUG] Player {player_id} fired a gun. Bullets left: {player["bullets"]}. Hit: {hit}')
+                
         elif action_type == 'bomb':
-            if player['bombs'] > 0 and opponent_visible:
+            if player['bombs'] > 0 :
+                display = True
                 # Reduce bombs
                 player['bombs'] -= 1
                 print(f'[DEBUG] Player {player_id} threw a bomb. Bombs left: {player["bombs"]}')
-                # Inflict immediate damage
-                new_damage = 5
+                if opponent_visible:
+                    # Inflict immediate damage
+                    new_damage = 5
+                    
         elif action_type == 'reload':
             # Can only reload if bullets are zero
             if player['bullets'] == 0:
+                display = True
                 player['bullets'] = 6
                 print(f'[DEBUG] Player {player_id} reloaded. Bullets: {player["bullets"]}')
+                
         elif action_type == 'shield':
             if player['shields'] > 0 and player['shield_hp'] == 0:
                 # Reduce shields count
@@ -254,9 +265,13 @@ class GameEngine:
                 # Reset shield HP
                 player['shield_hp'] = 30
                 print(f'[DEBUG] Player {player_id} activated a shield. Shields left: {player["shields"]}')
+                
         elif action_type == 'logout':
+            display = True
             player['login'] = DEBUG
+            
         elif action_type in ['basket', 'volley', "soccer", "bowl"]:
+            display = True
             # AI actions inflict damage only if opponent is visible
             if opponent_visible:
                 new_damage = 10
@@ -268,7 +283,7 @@ class GameEngine:
         player['opponent_hit'] = opponent_hit
         player['opponent_shield_hit'] = opponent_shield_hit
         
-        return True
+        return True, display
 
     async def process_message(self, message: aio_pika.IncomingMessage):
         async with message.process():
@@ -291,16 +306,19 @@ class GameEngine:
             
             if action_performed:
                 # Perform action calculations before updating internal state
-                action_registered = self.perform_action(player_id, action_type, data)
+                action_registered, display = self.perform_action(player_id, action_type, data)
                 if not action_registered:
                   return
                 
                 # Prepare message to publish
                 update_everyone_message = {
-                    "game_state": self.game_state,
-                    "action": action_type,
-                    "player_id": player_id
+                    "game_state": self.game_state
                 }
+
+                if display:
+                    update_everyone_message["action"] = action_type
+                    update_everyone_message["player_id"] = player_id
+                    
                 update_everyone_message_string = json.dumps(update_everyone_message)
                 # Publish to update_eval_server_queue
                 await self.publish_to_update_eval_server_queue(update_everyone_message)
