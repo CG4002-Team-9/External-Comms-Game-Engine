@@ -21,7 +21,7 @@ PASSWORD = os.getenv('PASSWORD')
 RABBITMQ_PORT = int(os.getenv('RABBITMQ_PORT', '5672'))
 
 # Retrieve PORT and SECRET_KEY from environment variables
-PORT = 8888
+PORT = 8000
 SECRET_KEY = "1234567812345678"
 
 # For RabbitMQ
