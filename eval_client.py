@@ -199,66 +199,57 @@ async def main():
         # Set up RabbitMQ connection
         await eval_client.setup_rabbitmq()
 
-        waiting_for_response_event = asyncio.Event()
-        waiting_for_response_event.clear()  # Not waiting initially
 
         async def on_message(message: aio_pika.IncomingMessage):
             async with message.process():
-                if not waiting_for_response_event.is_set():
-                    print('[DEBUG] Processing message from RabbitMQ queue')
-                    action_data = json.loads(message.body.decode('utf-8'))
-                    player_id = action_data['player_id']
-                    action = action_data['action']
-                    p1state = action_data['game_state']['p1']
-                    p2state = action_data['game_state']['p2']
-                    message_to_send = json.dumps({
-                        'player_id': player_id,
-                        'action': action,
-                        'game_state': {
-                            "p1": {
-                            "hp": p1state['hp'],
-                            "bullets": p1state['bullets'],
-                            "bombs": p1state['bombs'],
-                            "shield_hp": p1state['shield_hp'],
-                            "deaths": p1state['deaths'],
-                            "shields": p1state['shields']
-                            },
-                            "p2": {
-                            "hp": p2state['hp'],
-                            "bullets": p2state['bullets'],
-                            "bombs": p2state['bombs'],
-                            "shield_hp": p2state['shield_hp'],
-                            "deaths": p2state['deaths'],
-                            "shields": p2state['shields']
-                            }
+                print('[DEBUG] Processing message from RabbitMQ queue')
+                action_data = json.loads(message.body.decode('utf-8'))
+                player_id = action_data['player_id']
+                action = action_data['action']
+                p1state = action_data['game_state']['p1']
+                p2state = action_data['game_state']['p2']
+                message_to_send = json.dumps({
+                    'player_id': player_id,
+                    'action': action,
+                    'game_state': {
+                        "p1": {
+                        "hp": p1state['hp'],
+                        "bullets": p1state['bullets'],
+                        "bombs": p1state['bombs'],
+                        "shield_hp": p1state['shield_hp'],
+                        "deaths": p1state['deaths'],
+                        "shields": p1state['shields']
+                        },
+                        "p2": {
+                        "hp": p2state['hp'],
+                        "bullets": p2state['bullets'],
+                        "bombs": p2state['bombs'],
+                        "shield_hp": p2state['shield_hp'],
+                        "deaths": p2state['deaths'],
+                        "shields": p2state['shields']
                         }
-                    })
-                    print(f'[DEBUG] Sending action and game_state to server: {message_to_send}')
-                    await eval_client.send_text(message_to_send)
-                    print('[DEBUG] Sent action and game_state to server')
-                    waiting_for_response_event.set()
-                    # Now wait for the response
-                    try:
-                        while (eval_client.game_server_in_error > 0):
-                            game_state = await eval_client.recv_game_state()
-                            print(f"extra game_state is {game_state}")
-                            eval_client.game_server_in_error -= 1
+                    }
+                })
+                print(f'[DEBUG] Sending action and game_state to server: {message_to_send}')
+                await eval_client.send_text(message_to_send)
+                print('[DEBUG] Sent action and game_state to server')
+                # Now wait for the response
+                try:
+                    while (eval_client.game_server_in_error > 0):
                         game_state = await eval_client.recv_game_state()
-                        print('[DEBUG] Received response from server')
-                        # After receiving response, publish to update_ge_queue
-                        update_message = {
-                            "update": True,
-                            "game_state": game_state
-                        }
-                        await eval_client.publish_to_update_ge_queue(update_message)
-                    except Exception as e:
-                        eval_client.game_server_in_error += 1
-                        print(f'[ERROR] Error receiving game state: {e}')
-                    waiting_for_response_event.clear()
-                else:
-                    # Discard the message
-                    print('[DEBUG] Discarding message from queue because waiting for response')
-                    await message.ack()  # Acknowledge the message
+                        print(f"extra game_state is {game_state}")
+                        eval_client.game_server_in_error -= 1
+                    game_state = await eval_client.recv_game_state()
+                    print('[DEBUG] Received response from server')
+                    # After receiving response, publish to update_ge_queue
+                    update_message = {
+                        "update": True,
+                        "game_state": game_state
+                    }
+                    await eval_client.publish_to_update_ge_queue(update_message)
+                except Exception as e:
+                    eval_client.game_server_in_error += 1
+                    print(f'[ERROR] Error receiving game state: {e}')
 
         # Start consuming messages
         await eval_client.queue.consume(on_message)
