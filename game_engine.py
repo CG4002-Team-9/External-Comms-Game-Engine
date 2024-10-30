@@ -93,7 +93,8 @@ class GameEngine:
                 'glove_connected': False,
                 'vest_connected': False,
                 'leg_connected': False,
-                'login': True
+                'login': True,
+                'profile_pic': 0
             },
             'p2': {
                 'hp': 100,
@@ -109,7 +110,8 @@ class GameEngine:
                 'glove_connected': False,
                 'vest_connected': False,
                 'leg_connected': False,
-                'login': True
+                'login': True,
+                'profile_pic': 0
             }
         }
 
@@ -198,17 +200,15 @@ class GameEngine:
     
     def perform_action(self, player_id, action_type, data):
         display = False
-        
-        # If either player is not logged in, do not perform any actions for both players
-        if not self.game_state['p1']['login'] and not self.game_state['p2']['login']:
-            print('[DEBUG] Cannot perform actions when one or both players are not logged in.')
-            return False, display
-        
-        
-        
-        # Perform calculations based on action_type
         player_key = f'p{player_id}'
         opponent_key = 'p1' if player_key == 'p2' else 'p2'
+        
+        # If the player is not logged in, do not perform any actions
+        if not self.game_state[player_key]['login']:
+            print(f'[DEBUG] Player {player_id} is not logged in. Cannot perform actions.')
+            return False, display
+        
+        # Perform calculations based on action_type
 
         player = self.game_state[player_key]
         opponent = self.game_state[opponent_key]
