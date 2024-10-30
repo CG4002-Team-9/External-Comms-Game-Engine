@@ -260,6 +260,7 @@ class GameEngine:
                 
         elif action_type == 'shield':
             if player['shields'] > 0 and player['shield_hp'] == 0:
+                display = True
                 # Reduce shields count
                 player['shields'] -= 1
                 # Reset shield HP
