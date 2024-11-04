@@ -216,7 +216,7 @@ class GameEngine:
         # Extract necessary data
         opponent_visible = player.get('opponent_visible', False)
         opponent_in_rain_bomb = player.get('opponent_in_rain_bomb', 0)
-        hit = data.get('hit', False)
+        gun_hit = data.get('hit', False) or opponent_visible
 
         opponent_hit = False
         opponent_shield_hit = False
@@ -237,9 +237,9 @@ class GameEngine:
             if player['bullets'] > 0:
                 player['bullets'] -= 1
                 display = True
-                if hit:
+                if gun_hit:
                     new_damage = 5
-                print(f'[DEBUG] Player {player_id} fired a gun. Bullets left: {player["bullets"]}. Hit: {hit}')
+                print(f'[DEBUG] Player {player_id} fired a gun. Bullets left: {player["bullets"]}. Hit: {gun_hit}')
                 
         elif action_type == 'bomb':
             if player['bombs'] > 0 :
