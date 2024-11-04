@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Oct 16 14:05:30 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov  4 17:08:52 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="zynquplus" DEVICE="xczu3eg" NAME="design_1" PACKAGE="sbva484" SPEEDGRADE="-2"/>
 
@@ -904,67 +904,67 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="m_axi_mm2s_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_araddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="m_axi_mm2s_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arburst"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arburst"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="m_axi_mm2s_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arcache"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arcache"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="m_axi_mm2s_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arlen"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arlen"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="m_axi_mm2s_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arprot"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axi_mm2s_arready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="m_axi_mm2s_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arsize"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arsize"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axi_mm2s_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="m_axi_mm2s_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axi_mm2s_rlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rlast"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_rlast"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axi_mm2s_rready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="m_axi_mm2s_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axi_mm2s_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="96968727" DIR="I" NAME="m_axi_s2mm_aclk" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -974,82 +974,82 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="m_axi_s2mm_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awaddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="m_axi_s2mm_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awburst"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awburst"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="m_axi_s2mm_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awcache"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awcache"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="m_axi_s2mm_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awlen"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awlen"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="m_axi_s2mm_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awprot"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axi_s2mm_awready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="m_axi_s2mm_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awsize"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awsize"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axi_s2mm_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_awvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axi_s2mm_bready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_bready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="m_axi_s2mm_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_bresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axi_s2mm_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_bvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="m_axi_s2mm_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_wdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axi_s2mm_wlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_wlast"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wlast"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axi_s2mm_wready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_wready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="m_axi_s2mm_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_wstrb"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axi_s2mm_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_AXI_wvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="m_axis_mm2s_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tdata">
@@ -1088,82 +1088,82 @@
         </PORT>
         <PORT DIR="I" LEFT="9" NAME="s_axi_lite_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_araddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_lite_arready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_lite_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="9" NAME="s_axi_lite_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awaddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_lite_awready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_lite_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_lite_bready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="s_axi_lite_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_lite_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="s_axi_lite_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_lite_rready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="s_axi_lite_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_lite_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="s_axi_lite_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_lite_wready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_lite_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="s_axis_s2mm_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axis_s2mm_tdata">
@@ -1193,7 +1193,7 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M00_AXI" DATAWIDTH="32" NAME="S_AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_interconnect_0_M01_AXI" DATAWIDTH="32" NAME="S_AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="10"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -1213,9 +1213,9 @@
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="16"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="8"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="16"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="8"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
@@ -1741,84 +1741,189 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="39" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_araddr">
+        <PORT DIR="O" LEFT="39" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_araddr"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arready">
+        <PORT DIR="O" LEFT="1" NAME="M00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_arready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arvalid">
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_arvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="39" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awaddr">
+        <PORT DIR="O" LEFT="1" NAME="M00_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awaddr"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awready">
+        <PORT DIR="O" LEFT="7" NAME="M00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awvalid">
+        <PORT DIR="O" NAME="M00_AXI_arlock" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arlock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arlock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bready">
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bresp">
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arqos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bresp"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bvalid">
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rdata">
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rdata"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rready">
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rresp">
+        <PORT DIR="O" LEFT="39" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rresp"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rvalid">
+        <PORT DIR="O" LEFT="1" NAME="M00_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wdata">
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wdata"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wready">
+        <PORT DIR="O" LEFT="1" NAME="M00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wvalid">
+        <PORT DIR="O" LEFT="7" NAME="M00_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awlen"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_awlock" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awlock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awlock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awqos">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awqos"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awsize">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="M00_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="127" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="M00_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="127" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_ACLK" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -1831,89 +1936,84 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="39" NAME="M01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_araddr">
+        <PORT DIR="O" LEFT="39" NAME="M01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_ARADDR"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arready">
+        <PORT DIR="I" NAME="M01_AXI_arready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_ARREADY"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arvalid">
+        <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_ARVALID"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="39" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awaddr">
+        <PORT DIR="O" LEFT="39" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_AWADDR"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awready">
+        <PORT DIR="I" NAME="M01_AXI_awready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_AWREADY"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awvalid">
+        <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_AWVALID"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bready">
+        <PORT DIR="O" NAME="M01_AXI_bready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_BREADY"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bresp">
+        <PORT DIR="I" LEFT="1" NAME="M01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_BRESP"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bvalid">
+        <PORT DIR="I" NAME="M01_AXI_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_BVALID"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rdata">
+        <PORT DIR="I" LEFT="31" NAME="M01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RDATA"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rready">
+        <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RREADY"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rresp">
+        <PORT DIR="I" LEFT="1" NAME="M01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RRESP"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rvalid">
+        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RVALID"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wdata">
+        <PORT DIR="O" LEFT="31" NAME="M01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WDATA"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wready">
+        <PORT DIR="I" NAME="M01_AXI_wready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WREADY"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wstrb">
+        <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WSTRB"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WVALID"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -1928,187 +2028,87 @@
         </PORT>
         <PORT DIR="O" LEFT="39" NAME="M02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_araddr"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="M02_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arburst">
+        <PORT DIR="I" NAME="M02_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arburst"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arcache">
+        <PORT DIR="O" NAME="M02_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arcache"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="M02_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="M02_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arlen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arlen"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arlock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arlock"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arqos">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arqos"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arsize">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arsize"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_arvalid"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_ARVALID"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="39" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awaddr"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="M02_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awburst">
+        <PORT DIR="I" NAME="M02_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awburst"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_AWREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awcache">
+        <PORT DIR="O" NAME="M02_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awcache"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_AWVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="M02_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awid">
+        <PORT DIR="O" NAME="M02_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="M02_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awlen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awlen"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awlock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awlock"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awqos">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awqos"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awsize">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awsize"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="5" NAME="M02_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bready"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_BREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="M02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bresp"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bvalid">
+        <PORT DIR="I" NAME="M02_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_bvalid"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="127" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rdata">
+        <PORT DIR="I" LEFT="31" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rdata"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="5" NAME="M02_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rid">
+        <PORT DIR="O" NAME="M02_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_rlast" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rready"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="M02_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rresp"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rvalid">
+        <PORT DIR="I" NAME="M02_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_rvalid"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_RVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="127" NAME="M02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wdata">
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wdata"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_wlast" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wlast">
+        <PORT DIR="I" NAME="M02_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wlast"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wready">
+        <PORT DIR="O" LEFT="3" NAME="M02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wready"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="M02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wstrb">
+        <PORT DIR="O" NAME="M02_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp6_wvalid"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="s_axi_control_WVALID"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S00_ACLK" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -2121,69 +2121,189 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_araddr">
+        <PORT DIR="I" LEFT="39" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_araddr"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arburst">
+        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arburst"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arcache">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arcache"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arlen">
+        <PORT DIR="I" LEFT="15" NAME="S00_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arlen"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arprot">
+        <PORT DIR="I" LEFT="7" NAME="S00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arprot"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_arready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arready">
+        <PORT DIR="I" NAME="S00_AXI_arlock" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arlock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arlock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arsize">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arsize"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arvalid">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arqos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="S00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rdata">
+        <PORT DIR="O" NAME="S00_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rdata"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_rlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rlast">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rlast"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rready">
+        <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rready"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rresp">
+        <PORT DIR="I" LEFT="39" NAME="S00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rresp"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rvalid">
+        <PORT DIR="I" LEFT="1" NAME="S00_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rvalid"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awburst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awcache">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awcache"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="S00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="S00_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awlen">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awlen"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awlock" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awlock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awlock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awqos">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awqos"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awsize">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="S00_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="S00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="S00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="S00_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="S00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="S00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S01_ACLK" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -2196,84 +2316,69 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awaddr">
+        <PORT DIR="I" LEFT="31" NAME="S01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awaddr"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S01_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awburst">
+        <PORT DIR="I" LEFT="1" NAME="S01_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awburst"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S01_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awcache">
+        <PORT DIR="I" LEFT="3" NAME="S01_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awcache"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S01_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awlen">
+        <PORT DIR="I" LEFT="7" NAME="S01_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awlen"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S01_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awprot">
+        <PORT DIR="I" LEFT="2" NAME="S01_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awprot"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S01_AXI_awready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awready">
+        <PORT DIR="O" NAME="S01_AXI_arready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awready"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S01_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awsize">
+        <PORT DIR="I" LEFT="2" NAME="S01_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awsize"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S01_AXI_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awvalid">
+        <PORT DIR="I" NAME="S01_AXI_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awvalid"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S01_AXI_bready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bready">
+        <PORT DIR="O" LEFT="31" NAME="S01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_bready"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bresp">
+        <PORT DIR="O" NAME="S01_AXI_rlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_bresp"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S01_AXI_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bvalid">
+        <PORT DIR="I" NAME="S01_AXI_rready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_bvalid"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wdata">
+        <PORT DIR="O" LEFT="1" NAME="S01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wdata"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S01_AXI_wlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wlast">
+        <PORT DIR="O" NAME="S01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S01_AXI_wready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="S01_AXI_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wvalid"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S02_ACLK" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -2286,237 +2391,167 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="39" NAME="S02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_araddr">
+        <PORT DIR="I" LEFT="31" NAME="S02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_araddr"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S02_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arburst">
+        <PORT DIR="I" LEFT="1" NAME="S02_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arburst"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S02_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arcache">
+        <PORT DIR="I" LEFT="3" NAME="S02_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arcache"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="S02_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arid">
+        <PORT DIR="I" LEFT="7" NAME="S02_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arid"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S02_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arlen">
+        <PORT DIR="I" LEFT="2" NAME="S02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arlen"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="S02_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arlock">
+        <PORT DIR="O" NAME="S02_AXI_awready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arlock"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S02_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arprot">
+        <PORT DIR="I" LEFT="2" NAME="S02_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arprot"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S02_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arqos">
+        <PORT DIR="I" NAME="S02_AXI_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arqos"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S02_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arready">
+        <PORT DIR="I" NAME="S02_AXI_bready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arready"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S02_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arsize">
+        <PORT DIR="O" LEFT="1" NAME="S02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arsize"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="S02_AXI_aruser" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_aruser">
+        <PORT DIR="O" NAME="S02_AXI_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_aruser"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S02_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arvalid">
+        <PORT DIR="I" LEFT="31" NAME="S02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_arvalid"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="39" NAME="S02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awaddr">
+        <PORT DIR="I" NAME="S02_AXI_wlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awaddr"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S02_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awburst">
+        <PORT DIR="O" NAME="S02_AXI_wready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awburst"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S02_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awcache">
+        <PORT DIR="I" LEFT="3" NAME="S02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awcache"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="S02_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awid">
+        <PORT DIR="I" NAME="S02_AXI_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_s2mm_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S02_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awlen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awlen"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="S02_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awlock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awlock"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S02_AXI_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awqos">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awqos"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S02_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S02_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awsize">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awsize"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="S02_AXI_awuser" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awuser">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awuser"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="S02_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="S02_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="S02_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S02_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="S02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="S02_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S02_AXI_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="S02_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S02_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S02_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="S02_AXI_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S02_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="S02_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxigp2_wvalid"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_wvalid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXI_MM2S" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="zynq_ultra_ps_e_0_M_AXI_HPM0_LPD" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="S00_AXI_araddr"/>
             <PORTMAP LOGICAL="ARBURST" PHYSICAL="S00_AXI_arburst"/>
             <PORTMAP LOGICAL="ARCACHE" PHYSICAL="S00_AXI_arcache"/>
+            <PORTMAP LOGICAL="ARID" PHYSICAL="S00_AXI_arid"/>
             <PORTMAP LOGICAL="ARLEN" PHYSICAL="S00_AXI_arlen"/>
+            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="S00_AXI_arlock"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="S00_AXI_arprot"/>
+            <PORTMAP LOGICAL="ARQOS" PHYSICAL="S00_AXI_arqos"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="S00_AXI_arready"/>
             <PORTMAP LOGICAL="ARSIZE" PHYSICAL="S00_AXI_arsize"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="S00_AXI_arvalid"/>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="S00_AXI_awaddr"/>
+            <PORTMAP LOGICAL="AWBURST" PHYSICAL="S00_AXI_awburst"/>
+            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="S00_AXI_awcache"/>
+            <PORTMAP LOGICAL="AWID" PHYSICAL="S00_AXI_awid"/>
+            <PORTMAP LOGICAL="AWLEN" PHYSICAL="S00_AXI_awlen"/>
+            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="S00_AXI_awlock"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="S00_AXI_awprot"/>
+            <PORTMAP LOGICAL="AWQOS" PHYSICAL="S00_AXI_awqos"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="S00_AXI_awready"/>
+            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="S00_AXI_awsize"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="S00_AXI_awvalid"/>
+            <PORTMAP LOGICAL="BID" PHYSICAL="S00_AXI_bid"/>
+            <PORTMAP LOGICAL="BREADY" PHYSICAL="S00_AXI_bready"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="S00_AXI_bresp"/>
+            <PORTMAP LOGICAL="BVALID" PHYSICAL="S00_AXI_bvalid"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="S00_AXI_rdata"/>
+            <PORTMAP LOGICAL="RID" PHYSICAL="S00_AXI_rid"/>
             <PORTMAP LOGICAL="RLAST" PHYSICAL="S00_AXI_rlast"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="S00_AXI_rready"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="S00_AXI_rresp"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="S00_AXI_rvalid"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="S00_AXI_wdata"/>
+            <PORTMAP LOGICAL="WLAST" PHYSICAL="S00_AXI_wlast"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="S00_AXI_wready"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="S00_AXI_wstrb"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="S00_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M00_AXI" DATAWIDTH="32" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_interconnect_0_M00_AXI" DATAWIDTH="128" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M00_AXI_araddr"/>
+            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M00_AXI_arburst"/>
+            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M00_AXI_arcache"/>
+            <PORTMAP LOGICAL="ARID" PHYSICAL="M00_AXI_arid"/>
+            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M00_AXI_arlen"/>
+            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M00_AXI_arlock"/>
+            <PORTMAP LOGICAL="ARPROT" PHYSICAL="M00_AXI_arprot"/>
+            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M00_AXI_arqos"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M00_AXI_arready"/>
+            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M00_AXI_arsize"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M00_AXI_arvalid"/>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M00_AXI_awaddr"/>
+            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M00_AXI_awburst"/>
+            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M00_AXI_awcache"/>
+            <PORTMAP LOGICAL="AWID" PHYSICAL="M00_AXI_awid"/>
+            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M00_AXI_awlen"/>
+            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M00_AXI_awlock"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="M00_AXI_awprot"/>
+            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M00_AXI_awqos"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M00_AXI_awready"/>
+            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M00_AXI_awsize"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M00_AXI_awvalid"/>
+            <PORTMAP LOGICAL="BID" PHYSICAL="M00_AXI_bid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M00_AXI_bready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M00_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M00_AXI_bvalid"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M00_AXI_rdata"/>
+            <PORTMAP LOGICAL="RID" PHYSICAL="M00_AXI_rid"/>
+            <PORTMAP LOGICAL="RLAST" PHYSICAL="M00_AXI_rlast"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M00_AXI_rready"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M00_AXI_rresp"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M00_AXI_rvalid"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M00_AXI_wdata"/>
+            <PORTMAP LOGICAL="WLAST" PHYSICAL="M00_AXI_wlast"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M00_AXI_wready"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M00_AXI_wstrb"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M00_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
@@ -2537,66 +2572,39 @@
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M01_AXI_rvalid"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M01_AXI_wdata"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M01_AXI_wready"/>
-            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M01_AXI_wstrb"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M01_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXI_S2MM" DATAWIDTH="32" NAME="S01_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXI_MM2S" DATAWIDTH="32" NAME="S01_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="AWADDR" PHYSICAL="S01_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="S01_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="S01_AXI_awcache"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="S01_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWPROT" PHYSICAL="S01_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREADY" PHYSICAL="S01_AXI_awready"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="S01_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWVALID" PHYSICAL="S01_AXI_awvalid"/>
-            <PORTMAP LOGICAL="BREADY" PHYSICAL="S01_AXI_bready"/>
-            <PORTMAP LOGICAL="BRESP" PHYSICAL="S01_AXI_bresp"/>
-            <PORTMAP LOGICAL="BVALID" PHYSICAL="S01_AXI_bvalid"/>
-            <PORTMAP LOGICAL="WDATA" PHYSICAL="S01_AXI_wdata"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="S01_AXI_wlast"/>
-            <PORTMAP LOGICAL="WREADY" PHYSICAL="S01_AXI_wready"/>
-            <PORTMAP LOGICAL="WSTRB" PHYSICAL="S01_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WVALID" PHYSICAL="S01_AXI_wvalid"/>
+            <PORTMAP LOGICAL="ARADDR" PHYSICAL="S01_AXI_araddr"/>
+            <PORTMAP LOGICAL="ARBURST" PHYSICAL="S01_AXI_arburst"/>
+            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="S01_AXI_arcache"/>
+            <PORTMAP LOGICAL="ARLEN" PHYSICAL="S01_AXI_arlen"/>
+            <PORTMAP LOGICAL="ARPROT" PHYSICAL="S01_AXI_arprot"/>
+            <PORTMAP LOGICAL="ARREADY" PHYSICAL="S01_AXI_arready"/>
+            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="S01_AXI_arsize"/>
+            <PORTMAP LOGICAL="ARVALID" PHYSICAL="S01_AXI_arvalid"/>
+            <PORTMAP LOGICAL="RDATA" PHYSICAL="S01_AXI_rdata"/>
+            <PORTMAP LOGICAL="RLAST" PHYSICAL="S01_AXI_rlast"/>
+            <PORTMAP LOGICAL="RREADY" PHYSICAL="S01_AXI_rready"/>
+            <PORTMAP LOGICAL="RRESP" PHYSICAL="S01_AXI_rresp"/>
+            <PORTMAP LOGICAL="RVALID" PHYSICAL="S01_AXI_rvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="zynq_ultra_ps_e_0_M_AXI_HPM0_LPD" DATAWIDTH="32" NAME="S02_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXI_S2MM" DATAWIDTH="32" NAME="S02_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="ARADDR" PHYSICAL="S02_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="S02_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="S02_AXI_arcache"/>
-            <PORTMAP LOGICAL="ARID" PHYSICAL="S02_AXI_arid"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="S02_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="S02_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARPROT" PHYSICAL="S02_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="S02_AXI_arqos"/>
-            <PORTMAP LOGICAL="ARREADY" PHYSICAL="S02_AXI_arready"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="S02_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARUSER" PHYSICAL="S02_AXI_aruser"/>
-            <PORTMAP LOGICAL="ARVALID" PHYSICAL="S02_AXI_arvalid"/>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="S02_AXI_awaddr"/>
             <PORTMAP LOGICAL="AWBURST" PHYSICAL="S02_AXI_awburst"/>
             <PORTMAP LOGICAL="AWCACHE" PHYSICAL="S02_AXI_awcache"/>
-            <PORTMAP LOGICAL="AWID" PHYSICAL="S02_AXI_awid"/>
             <PORTMAP LOGICAL="AWLEN" PHYSICAL="S02_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="S02_AXI_awlock"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="S02_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="S02_AXI_awqos"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="S02_AXI_awready"/>
             <PORTMAP LOGICAL="AWSIZE" PHYSICAL="S02_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWUSER" PHYSICAL="S02_AXI_awuser"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="S02_AXI_awvalid"/>
-            <PORTMAP LOGICAL="BID" PHYSICAL="S02_AXI_bid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="S02_AXI_bready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="S02_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="S02_AXI_bvalid"/>
-            <PORTMAP LOGICAL="RDATA" PHYSICAL="S02_AXI_rdata"/>
-            <PORTMAP LOGICAL="RID" PHYSICAL="S02_AXI_rid"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="S02_AXI_rlast"/>
-            <PORTMAP LOGICAL="RREADY" PHYSICAL="S02_AXI_rready"/>
-            <PORTMAP LOGICAL="RRESP" PHYSICAL="S02_AXI_rresp"/>
-            <PORTMAP LOGICAL="RVALID" PHYSICAL="S02_AXI_rvalid"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="S02_AXI_wdata"/>
             <PORTMAP LOGICAL="WLAST" PHYSICAL="S02_AXI_wlast"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="S02_AXI_wready"/>
@@ -2604,42 +2612,22 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="S02_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M02_AXI" DATAWIDTH="128" NAME="M02_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_interconnect_0_M02_AXI" DATAWIDTH="32" NAME="M02_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M02_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M02_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M02_AXI_arcache"/>
-            <PORTMAP LOGICAL="ARID" PHYSICAL="M02_AXI_arid"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M02_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M02_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARPROT" PHYSICAL="M02_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M02_AXI_arqos"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M02_AXI_arready"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M02_AXI_arsize"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M02_AXI_arvalid"/>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M02_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M02_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M02_AXI_awcache"/>
-            <PORTMAP LOGICAL="AWID" PHYSICAL="M02_AXI_awid"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M02_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M02_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWPROT" PHYSICAL="M02_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M02_AXI_awqos"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M02_AXI_awready"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M02_AXI_awsize"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M02_AXI_awvalid"/>
-            <PORTMAP LOGICAL="BID" PHYSICAL="M02_AXI_bid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M02_AXI_bready"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M02_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M02_AXI_bvalid"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M02_AXI_rdata"/>
-            <PORTMAP LOGICAL="RID" PHYSICAL="M02_AXI_rid"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M02_AXI_rlast"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M02_AXI_rready"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M02_AXI_rresp"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M02_AXI_rvalid"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M02_AXI_wdata"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M02_AXI_wlast"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M02_AXI_wready"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M02_AXI_wstrb"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M02_AXI_wvalid"/>
@@ -2647,7 +2635,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="2113780544" FULLNAME="/gesture_model_0" HWVERSION="1.0" INSTANCE="gesture_model_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="gesture_model" VLNV="xilinx.com:hls:gesture_model:1.0">
+    <MODULE COREREVISION="2113808099" FULLNAME="/gesture_model_0" HWVERSION="1.0" INSTANCE="gesture_model_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="gesture_model" VLNV="xilinx.com:hls:gesture_model:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="read-write" INTERFACE="s_axi_control" NAME="Reg" RANGE="65536" USAGE="register">
@@ -2869,10 +2857,10 @@
         <PARAMETER NAME="C_S_AXI_CONTROL_ADDR_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_gesture_model_0_0"/>
-        <PARAMETER NAME="II" VALUE="446204"/>
+        <PARAMETER NAME="II" VALUE="225612 ~ 434566"/>
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="446203"/>
+        <PARAMETER NAME="latency" VALUE="225611"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_BASEADDR" VALUE="0x80010000"/>
@@ -2940,94 +2928,94 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="s_axis_s2mm_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_control_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_araddr">
+        <PORT DIR="I" LEFT="3" NAME="s_axi_control_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_araddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_control_ARREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arready">
+        <PORT DIR="O" NAME="s_axi_control_ARREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_arready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_control_ARVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arvalid">
+        <PORT DIR="I" NAME="s_axi_control_ARVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_arvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_control_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awaddr">
+        <PORT DIR="I" LEFT="3" NAME="s_axi_control_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_awaddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_control_AWREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awready">
+        <PORT DIR="O" NAME="s_axi_control_AWREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_awready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_control_AWVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awvalid">
+        <PORT DIR="I" NAME="s_axi_control_AWVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_awvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_control_BREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bready">
+        <PORT DIR="I" NAME="s_axi_control_BREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_bready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_control_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bresp">
+        <PORT DIR="O" LEFT="1" NAME="s_axi_control_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_bresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_control_BVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bvalid">
+        <PORT DIR="O" NAME="s_axi_control_BVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_bvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="s_axi_control_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rdata">
+        <PORT DIR="O" LEFT="31" NAME="s_axi_control_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_control_RREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rready">
+        <PORT DIR="I" NAME="s_axi_control_RREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_control_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rresp">
+        <PORT DIR="O" LEFT="1" NAME="s_axi_control_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_control_RVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rvalid">
+        <PORT DIR="O" NAME="s_axi_control_RVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_rvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_control_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wdata">
+        <PORT DIR="I" LEFT="31" NAME="s_axi_control_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_control_WREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wready">
+        <PORT DIR="O" NAME="s_axi_control_WREADY" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_control_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wstrb">
+        <PORT DIR="I" LEFT="3" NAME="s_axi_control_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wstrb"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_control_WVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wvalid">
+        <PORT DIR="I" NAME="s_axi_control_WVALID" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_AXI_wvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M01_AXI" DATAWIDTH="32" NAME="s_axi_control" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_interconnect_0_M02_AXI" DATAWIDTH="32" NAME="s_axi_control" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -3162,11 +3150,11 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_ARESETN"/>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_ARESETN"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_ARESETN"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="ap_rst_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
@@ -3182,6 +3170,12 @@
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=zynq_ultra_ps_e;v=v3_5;d=pg201-zynq-ultrascale-plus-processing-system.pdf"/>
       </DOCUMENTS>
+      <ADDRESSBLOCKS>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="SAXIGP6" NAME="LPD_LPS_OCM" RANGE="0x1000000" USAGE="register"/>
+      </ADDRESSBLOCKS>
+      <ADDRESSBLOCKS>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="SAXIGP6" NAME="LPD_DDR_LOW" RANGE="0x80000000" USAGE="memory"/>
+      </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_DP_USE_AUDIO" VALUE="0"/>
         <PARAMETER NAME="C_DP_USE_VIDEO" VALUE="0"/>
@@ -3713,8 +3707,8 @@
         <PARAMETER NAME="PSU_MIO_9_POLARITY" VALUE="Default"/>
         <PARAMETER NAME="PSU_MIO_9_PULLUPDOWN" VALUE="pullup"/>
         <PARAMETER NAME="PSU_MIO_9_SLEW" VALUE="fast"/>
-        <PARAMETER NAME="PSU_MIO_TREE_PERIPHERALS" VALUE="#############################################################################"/>
-        <PARAMETER NAME="PSU_MIO_TREE_SIGNALS" VALUE="#############################################################################"/>
+        <PARAMETER NAME="PSU_MIO_TREE_PERIPHERALS"/>
+        <PARAMETER NAME="PSU_MIO_TREE_SIGNALS"/>
         <PARAMETER NAME="PSU_PERIPHERAL_BOARD_PRESET"/>
         <PARAMETER NAME="PSU_SD0_INTERNAL_BUS_WIDTH" VALUE="8"/>
         <PARAMETER NAME="PSU_SD1_INTERNAL_BUS_WIDTH" VALUE="8"/>
@@ -4915,199 +4909,189 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x7FFFFFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="39" NAME="maxigp2_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_araddr">
+        <PORT DIR="O" LEFT="39" NAME="maxigp2_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_araddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="maxigp2_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arburst">
+        <PORT DIR="O" LEFT="1" NAME="maxigp2_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arburst"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="maxigp2_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arcache">
+        <PORT DIR="O" LEFT="3" NAME="maxigp2_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arcache"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="maxigp2_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arid">
+        <PORT DIR="O" LEFT="15" NAME="maxigp2_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="maxigp2_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arlen">
+        <PORT DIR="O" LEFT="7" NAME="maxigp2_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arlen"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_arlock" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arlock">
+        <PORT DIR="O" NAME="maxigp2_arlock" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arlock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arlock"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arlock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="maxigp2_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arprot">
+        <PORT DIR="O" LEFT="2" NAME="maxigp2_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arprot"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="maxigp2_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arqos">
+        <PORT DIR="O" LEFT="3" NAME="maxigp2_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arqos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arqos"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="maxigp2_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arready">
+        <PORT DIR="I" NAME="maxigp2_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="maxigp2_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arsize">
+        <PORT DIR="O" LEFT="2" NAME="maxigp2_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arsize"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="maxigp2_aruser" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_aruser">
+        <PORT DIR="O" NAME="maxigp2_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_aruser"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_arvalid">
+        <PORT DIR="O" LEFT="39" NAME="maxigp2_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_arvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="39" NAME="maxigp2_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awaddr">
+        <PORT DIR="O" LEFT="1" NAME="maxigp2_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awaddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="maxigp2_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awburst">
+        <PORT DIR="O" LEFT="3" NAME="maxigp2_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awburst"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="maxigp2_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awcache">
+        <PORT DIR="O" LEFT="15" NAME="maxigp2_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awcache"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="maxigp2_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awid">
+        <PORT DIR="O" LEFT="7" NAME="maxigp2_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="maxigp2_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awlen">
+        <PORT DIR="O" NAME="maxigp2_awlock" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awlock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awlen"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awlock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_awlock" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awlock">
+        <PORT DIR="O" LEFT="2" NAME="maxigp2_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awlock"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="maxigp2_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awprot">
+        <PORT DIR="O" LEFT="3" NAME="maxigp2_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awqos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awprot"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="maxigp2_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awqos">
+        <PORT DIR="I" NAME="maxigp2_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awqos"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="maxigp2_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awready">
+        <PORT DIR="O" LEFT="2" NAME="maxigp2_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="maxigp2_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awsize">
+        <PORT DIR="O" NAME="maxigp2_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awsize"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="maxigp2_awuser" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awuser">
+        <PORT DIR="I" LEFT="15" NAME="maxigp2_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awuser"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_bid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_awvalid">
+        <PORT DIR="O" NAME="maxigp2_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_awvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="maxigp2_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bid">
+        <PORT DIR="I" LEFT="1" NAME="maxigp2_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bready">
+        <PORT DIR="I" NAME="maxigp2_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="maxigp2_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bresp">
+        <PORT DIR="I" LEFT="31" NAME="maxigp2_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="maxigp2_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_bvalid">
+        <PORT DIR="I" LEFT="15" NAME="maxigp2_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_bvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="maxigp2_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rdata">
+        <PORT DIR="I" NAME="maxigp2_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_rdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="maxigp2_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rid">
+        <PORT DIR="O" NAME="maxigp2_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_rid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="maxigp2_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rlast">
+        <PORT DIR="I" LEFT="1" NAME="maxigp2_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_rlast"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rready">
+        <PORT DIR="I" NAME="maxigp2_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_rready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="maxigp2_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rresp">
+        <PORT DIR="O" LEFT="31" NAME="maxigp2_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_rresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="maxigp2_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_rvalid">
+        <PORT DIR="O" NAME="maxigp2_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_rvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_wlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="maxigp2_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wdata">
+        <PORT DIR="I" NAME="maxigp2_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="maxigp2_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wlast">
+        <PORT DIR="O" LEFT="3" NAME="maxigp2_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wlast"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="maxigp2_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wready">
+        <PORT DIR="O" NAME="maxigp2_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="maxigp2_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="maxigp2_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_S02_AXI_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_AXI_wvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="96968727" DIR="I" NAME="maxihpm0_lpd_aclk" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
@@ -5123,14 +5107,14 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
-            <CONNECTION INSTANCE="gesture_model_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_aclk"/>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ACLK"/>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_ACLK"/>
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxi_lpd_aclk"/>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_ACLK"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_ACLK"/>
+            <CONNECTION INSTANCE="gesture_model_0" PORT="ap_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="pl_resetn0" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zynq_ultra_ps_e_0_pl_resetn0">
@@ -5143,189 +5127,189 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="pl_clk0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="48" NAME="saxigp6_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_araddr">
+        <PORT DIR="I" LEFT="48" NAME="saxigp6_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_araddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="saxigp6_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arburst">
+        <PORT DIR="I" LEFT="1" NAME="saxigp6_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arburst"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="saxigp6_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arcache">
+        <PORT DIR="I" LEFT="3" NAME="saxigp6_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arcache"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="5" NAME="saxigp6_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arid">
+        <PORT DIR="I" LEFT="5" NAME="saxigp6_arid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="saxigp6_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arlen">
+        <PORT DIR="I" LEFT="7" NAME="saxigp6_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arlen"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_arlock" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arlock">
+        <PORT DIR="I" NAME="saxigp6_arlock" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arlock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arlock"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arlock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="saxigp6_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arprot">
+        <PORT DIR="I" LEFT="2" NAME="saxigp6_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arprot"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="saxigp6_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arqos">
+        <PORT DIR="I" LEFT="3" NAME="saxigp6_arqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arqos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arqos"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="saxigp6_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arready">
+        <PORT DIR="O" NAME="saxigp6_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="saxigp6_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arsize">
+        <PORT DIR="I" LEFT="2" NAME="saxigp6_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arsize"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_arvalid">
+        <PORT DIR="I" NAME="saxigp6_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_arvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="48" NAME="saxigp6_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awaddr">
+        <PORT DIR="I" LEFT="48" NAME="saxigp6_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awaddr"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="saxigp6_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awburst">
+        <PORT DIR="I" LEFT="1" NAME="saxigp6_awburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awburst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awburst"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="saxigp6_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awcache">
+        <PORT DIR="I" LEFT="3" NAME="saxigp6_awcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awcache">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awcache"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="5" NAME="saxigp6_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awid">
+        <PORT DIR="I" LEFT="5" NAME="saxigp6_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="saxigp6_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awlen">
+        <PORT DIR="I" LEFT="7" NAME="saxigp6_awlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awlen">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awlen"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_awlock" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awlock">
+        <PORT DIR="I" NAME="saxigp6_awlock" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awlock">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awlock"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awlock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="saxigp6_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awprot">
+        <PORT DIR="I" LEFT="2" NAME="saxigp6_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awprot"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="saxigp6_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awqos">
+        <PORT DIR="I" LEFT="3" NAME="saxigp6_awqos" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awqos">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awqos"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="saxigp6_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awready">
+        <PORT DIR="O" NAME="saxigp6_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="saxigp6_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awsize">
+        <PORT DIR="I" LEFT="2" NAME="saxigp6_awsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awsize">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awsize"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awvalid">
+        <PORT DIR="I" NAME="saxigp6_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_awvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="5" NAME="saxigp6_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bid">
+        <PORT DIR="O" LEFT="5" NAME="saxigp6_bid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bready">
+        <PORT DIR="I" NAME="saxigp6_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="saxigp6_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bresp">
+        <PORT DIR="O" LEFT="1" NAME="saxigp6_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="saxigp6_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_bvalid">
+        <PORT DIR="O" NAME="saxigp6_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_bvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="127" NAME="saxigp6_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rdata">
+        <PORT DIR="O" LEFT="127" NAME="saxigp6_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="5" NAME="saxigp6_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rid">
+        <PORT DIR="O" LEFT="5" NAME="saxigp6_rid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="saxigp6_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rlast">
+        <PORT DIR="O" NAME="saxigp6_rlast" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rlast"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rready">
+        <PORT DIR="I" NAME="saxigp6_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="saxigp6_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rresp">
+        <PORT DIR="O" LEFT="1" NAME="saxigp6_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rresp"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="saxigp6_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_rvalid">
+        <PORT DIR="O" NAME="saxigp6_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_rvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="127" NAME="saxigp6_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wdata">
+        <PORT DIR="I" LEFT="127" NAME="saxigp6_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wdata"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wlast">
+        <PORT DIR="I" NAME="saxigp6_wlast" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wlast"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="saxigp6_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wready">
+        <PORT DIR="O" NAME="saxigp6_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wready"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="saxigp6_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wstrb">
+        <PORT DIR="I" LEFT="15" NAME="saxigp6_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wstrb"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="saxigp6_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_wvalid">
+        <PORT DIR="I" NAME="saxigp6_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_AXI_wvalid"/>
+            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5373,7 +5357,6 @@
             <PORTMAP LOGICAL="ARQOS" PHYSICAL="maxigp2_arqos"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="maxigp2_arready"/>
             <PORTMAP LOGICAL="ARSIZE" PHYSICAL="maxigp2_arsize"/>
-            <PORTMAP LOGICAL="ARUSER" PHYSICAL="maxigp2_aruser"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="maxigp2_arvalid"/>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="maxigp2_awaddr"/>
             <PORTMAP LOGICAL="AWBURST" PHYSICAL="maxigp2_awburst"/>
@@ -5385,7 +5368,6 @@
             <PORTMAP LOGICAL="AWQOS" PHYSICAL="maxigp2_awqos"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="maxigp2_awready"/>
             <PORTMAP LOGICAL="AWSIZE" PHYSICAL="maxigp2_awsize"/>
-            <PORTMAP LOGICAL="AWUSER" PHYSICAL="maxigp2_awuser"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="maxigp2_awvalid"/>
             <PORTMAP LOGICAL="BID" PHYSICAL="maxigp2_bid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="maxigp2_bready"/>
@@ -5404,7 +5386,7 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="maxigp2_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M02_AXI" DATAWIDTH="128" NAME="S_AXI_LPD" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_interconnect_0_M00_AXI" DATAWIDTH="128" NAME="S_AXI_LPD" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="49"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="1"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1"/>

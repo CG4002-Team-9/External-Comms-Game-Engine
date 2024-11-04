@@ -34,8 +34,8 @@ UPDATE_PREDICTIONS_EXCHANGE = os.getenv("UPDATE_PREDICTIONS_EXCHANGE", "update_p
 # Confidence threshold
 CONFIDENCE_THRESHOLD = 0.90  # Adjust as needed
 
-TARGET_LENGTH_HAND = 60
-INPUT_LENGTH_HAND = 360
+TARGET_LENGTH_HAND = 59
+INPUT_LENGTH_HAND = 354
 OUTPUT_LENGTH_HAND = 10
 
 TARGET_LENGTH_LEG = 40
@@ -65,7 +65,7 @@ def pad_or_truncate(array, target_length=60):
 
 class ActionClassifier:
     def __init__(self):
-        self.ol = Overlay(folder_to_use + 'combined.bit')
+        self.ol = Overlay(folder_to_use + 'design_1.bit')
         self.nn = self.ol.gesture_model_0
         self.nn.write(0x0, 0x81)
         self.dma = self.ol.axi_dma_0
@@ -82,18 +82,22 @@ class ActionClassifier:
             self.input_stream = self.input_stream_hand
             self.output_stream = self.output_stream_hand
             self.input_stream[0] = 1.0
-            for i in range(1, INPUT_LENGTH_HAND):
-                self.input_stream[i] = input_data[i]
+            for i in range(0, INPUT_LENGTH_HAND):
+                self.input_stream[i + 1] = input_data[i]
+                print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
         elif device == 'leg':
             self.input_stream = self.input_stream_leg
             self.output_stream = self.output_stream_leg
             self.input_stream[0] = 0
-            for i in range(1, INPUT_LENGTH_LEG):
-                self.input_stream[i] = input_data[i]
+            for i in range(0, INPUT_LENGTH_LEG):
+                self.input_stream[i + 1] = input_data[i]
+                print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
 
+        print(f'[DEBUG] Input stream: {self.input_stream}')
+        
         self.dma_send.transfer(self.input_stream)
         self.dma_send.wait()
-
+        
         self.dma_recv.transfer(self.output_stream)
         self.dma_recv.wait()
 
@@ -166,6 +170,7 @@ class AIServer:
             # Scale the data
             input_data = scaler.transform(imu_data).flatten()
             print("input_data Data:", input_data)  # Sanity check
+            print("input_data Data Length:", len(input_data))  # Sanity check
             
             # Ensure input_data length is correct
             if len(input_data) != input_length:
