@@ -84,14 +84,14 @@ class ActionClassifier:
             self.input_stream[0] = 1.0
             for i in range(0, INPUT_LENGTH_HAND):
                 self.input_stream[i + 1] = input_data[i]
-                print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
+                #print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
         elif device == 'leg':
             self.input_stream = self.input_stream_leg
             self.output_stream = self.output_stream_leg
             self.input_stream[0] = 0
             for i in range(0, INPUT_LENGTH_LEG):
                 self.input_stream[i + 1] = input_data[i]
-                print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
+                #print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
 
         print(f'[DEBUG] Input stream: {self.input_stream}')
         

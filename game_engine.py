@@ -155,9 +155,15 @@ class GameEngine:
 
     def update_internal_game_state(self, incoming_game_state):
         # Update internal game state with the incoming data
+        changed = False
         for player_key in ['p1', 'p2']:
             if player_key in incoming_game_state:
+                for key, value in self.game_state[player_key].items():
+                    # if something changed, update the internal game state
+                    if key in incoming_game_state[player_key] and incoming_game_state[player_key][key] != value:
+                        changed = True
                 self.game_state[player_key].update(incoming_game_state[player_key])
+        return changed
 
     def revive_player(self, player_id):
         player_key = f'p{player_id}'
@@ -299,8 +305,8 @@ class GameEngine:
             incoming_game_state = data.get('game_state', {})
 
             # Update internal game state with non-action-related info
-            self.update_internal_game_state(incoming_game_state)
-
+            to_update = self.update_internal_game_state(incoming_game_state)
+            
             if DEBUG:
                 self.game_state['p1']['opponent_visible'] = True
                 self.game_state['p2']['opponent_visible'] = True
