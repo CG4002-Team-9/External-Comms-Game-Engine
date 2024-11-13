@@ -77,6 +77,10 @@ class GameEngine:
         self.channel = None
         self.update_ge_queue = None
         self.exchange = None
+        
+        # Initialize lock for ensuring single access to message processing
+        self.lock = asyncio.Lock()
+        
         # Initialize internal game state
         self.game_state = {
             'p1': {
@@ -151,7 +155,7 @@ class GameEngine:
             aio_pika.Message(body=message_body),
             routing_key=UPDATE_EVAL_SERVER_QUEUE,
         )
-        print(f'[DEBUG] Published message to {UPDATE_EVAL_SERVER_QUEUE}: {json.dumps(message, indent = 2)}')
+        # print(f'[DEBUG] Published message to {UPDATE_EVAL_SERVER_QUEUE}: {json.dumps(message, indent = 2)}')
 
     def update_internal_game_state(self, incoming_game_state):
         # Update internal game state with the incoming data
@@ -293,78 +297,80 @@ class GameEngine:
         return True, display
 
     async def process_message(self, message: aio_pika.IncomingMessage):
-        async with message.process():
-            print(f'[DEBUG] Received message from RabbitMQ queue "{UPDATE_GE_QUEUE}"')
-            data = json.loads(message.body.decode('utf-8'))
-            print(f'[DEBUG] Message content:\n{json.dumps(data, indent=2)}')
+        async with self.lock:  # Ensures only one process runs at a time
+            async with message.process():
+                print(f'[DEBUG] Received message from RabbitMQ queue "{UPDATE_GE_QUEUE}"')
+                data = json.loads(message.body.decode('utf-8'))
+                print(f'[DEBUG] Message content:\n{json.dumps(data, indent=2)}')
 
-            action_performed = data.get("action", False)
-            to_update = data.get("update", False)
-            player_id = data.get('player_id')
-            action_type = data.get('action_type')
-            incoming_game_state = data.get('game_state', {})
+                action_performed = data.get("action", False)
+                to_update = data.get("update", False)
+                player_id = data.get('player_id')
+                action_type = data.get('action_type')
+                incoming_game_state = data.get('game_state', {})
+                forced_update = data.get('f', False)
 
-            # Update internal game state with non-action-related info
-            to_update = self.update_internal_game_state(incoming_game_state)
-            
-            if DEBUG:
-                self.game_state['p1']['opponent_visible'] = True
-                self.game_state['p2']['opponent_visible'] = True
-            
-            if action_performed:
-                # Perform action calculations before updating internal state
-                action_registered, display = self.perform_action(player_id, action_type, data)
-                if not action_registered:
-                  return
+                # Update internal game state with non-action-related info
+                to_update = self.update_internal_game_state(incoming_game_state) or forced_update
                 
-                # Prepare message to publish
-                update_everyone_message = {
-                    "game_state": self.game_state
-                }
+                if DEBUG:
+                    self.game_state['p1']['opponent_visible'] = True
+                    self.game_state['p2']['opponent_visible'] = True
+                
+                if action_performed:
+                    # Perform action calculations before updating internal state
+                    action_registered, display = self.perform_action(player_id, action_type, data)
+                    if not action_registered:
+                        return
+                    
+                    # Prepare message to publish
+                    update_everyone_message = {
+                        "game_state": self.game_state
+                    }
 
-                if display:
+                    if display:
+                        update_everyone_message["action"] = action_type
+                        update_everyone_message["player_id"] = player_id
+                        
+                    update_everyone_message_string = json.dumps(update_everyone_message)
+                    
+                    # Publish to Exchange
+                    await self.exchange.publish(
+                        aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
+                        routing_key=''
+                    )
+                    
                     update_everyone_message["action"] = action_type
                     update_everyone_message["player_id"] = player_id
                     
-                update_everyone_message_string = json.dumps(update_everyone_message)
+                    # Publish to update_eval_server_queue
+                    await self.publish_to_update_eval_server_queue(update_everyone_message)
+                    
+                    
+                    print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
+                elif to_update:
+                    # Prepare message to publish
+                    
+                    update_everyone_message = {
+                        "game_state": self.game_state
+                    }
+                    update_everyone_message_string = json.dumps(update_everyone_message)
+                    # Publish to Exchange
+                    await self.exchange.publish(
+                        aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
+                        routing_key=''
+                    )
+                    # print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
+                else:
+                    # Only update internal game state without sending messages
+                    # print(f'Game state updated internally: {json.dumps(self.game_state, indent=2)}')
+                    print('[DEBUG] Updated internal game state without sending any messages')
                 
-                # Publish to Exchange
-                await self.exchange.publish(
-                    aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
-                    routing_key=''
-                )
-                
-                update_everyone_message["action"] = action_type
-                update_everyone_message["player_id"] = player_id
-                
-                # Publish to update_eval_server_queue
-                await self.publish_to_update_eval_server_queue(update_everyone_message)
-                
-                
-                print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
-            elif to_update:
-                # Prepare message to publish
-                
-                update_everyone_message = {
-                    "game_state": self.game_state
-                }
-                update_everyone_message_string = json.dumps(update_everyone_message)
-                # Publish to Exchange
-                await self.exchange.publish(
-                    aio_pika.Message(body=update_everyone_message_string.encode('utf-8')),
-                    routing_key=''
-                )
-                print(f'[DEBUG] Published message to RabbitMQ exchange "{UPDATE_EVERYONE_EXCHANGE}": {json.dumps(update_everyone_message, indent = 2)}')
-            else:
-                # Only update internal game state without sending messages
-                print(f'Game state updated internally: {json.dumps(self.game_state, indent=2)}')
-                print('[DEBUG] Updated internal game state without sending any messages')
-            
-            # After doing any update, reset the opponent_hit and opponent_shield_hit flags
-            self.game_state['p1']['opponent_hit'] = False
-            self.game_state['p1']['opponent_shield_hit'] = False
-            self.game_state['p2']['opponent_hit'] = False
-            self.game_state['p2']['opponent_shield_hit'] = False
+                # After doing any update, reset the opponent_hit and opponent_shield_hit flags
+                self.game_state['p1']['opponent_hit'] = False
+                self.game_state['p1']['opponent_shield_hit'] = False
+                self.game_state['p2']['opponent_hit'] = False
+                self.game_state['p2']['opponent_shield_hit'] = False
 
     async def run(self):
         # Create instance of QueuePurger and purge the queues before running the game engine

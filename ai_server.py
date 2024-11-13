@@ -65,48 +65,75 @@ def pad_or_truncate(array, target_length=60):
 
 class ActionClassifier:
     def __init__(self):
-        self.ol = Overlay(folder_to_use + 'design_1.bit')
-        self.nn = self.ol.gesture_model_0
-        self.nn.write(0x0, 0x81)
-        self.dma = self.ol.axi_dma_0
-        self.dma_send = self.dma.sendchannel
-        self.dma_recv = self.dma.recvchannel
-        self.input_stream_hand = allocate(shape=(INPUT_LENGTH_HAND + 1,), dtype='float32')
-        self.output_stream_hand = allocate(shape=(OUTPUT_LENGTH_HAND,), dtype='float32')  # Adjusted based on the model output size
-        self.input_stream_leg = allocate(shape=(INPUT_LENGTH_LEG + 1,), dtype='float32')
-        self.output_stream_leg = allocate(shape=(OUTPUT_LENGTH_LEG,), dtype='float32')  # Adjusted based on the model output size
+        try:
+            self.ol = Overlay(folder_to_use + 'unseen.bit')
+            self.nn = self.ol.gesture_model_0
+            self.nn.write(0x0, 0x81)
+            self.dma = self.ol.axi_dma_0
+            self.dma_send = self.dma.sendchannel
+            self.dma_recv = self.dma.recvchannel
+            self.input_stream_hand = allocate(shape=(INPUT_LENGTH_HAND + 1,), dtype='float32')
+            self.output_stream_hand = allocate(shape=(OUTPUT_LENGTH_HAND,), dtype='float32')  # Adjusted based on the model output size
+            self.input_stream_leg = allocate(shape=(INPUT_LENGTH_LEG + 1,), dtype='float32')
+            self.output_stream_leg = allocate(shape=(OUTPUT_LENGTH_LEG,), dtype='float32')  # Adjusted based on the model output size
+        except Exception as e:
+            print(f'[ERROR] Initialization error: {e}')
+            self.cleanup_buffers()
+            raise
 
+    def cleanup_buffers(self):
+        """Free the allocated buffers to avoid memory issues."""
+        try:
+            if hasattr(self, 'input_stream_hand') and self.input_stream_hand is not None:
+                self.input_stream_hand.freebuffer()
+            if hasattr(self, 'output_stream_hand') and self.output_stream_hand is not None:
+                self.output_stream_hand.freebuffer()
+            if hasattr(self, 'input_stream_leg') and self.input_stream_leg is not None:
+                self.input_stream_leg.freebuffer()
+            if hasattr(self, 'output_stream_leg') and self.output_stream_leg is not None:
+                self.output_stream_leg.freebuffer()
+        except Exception as cleanup_error:
+            print(f'[ERROR] Buffer cleanup error: {cleanup_error}')
+    
+    def __del__(self):
+        """Ensure buffers are cleaned up when the object is deleted."""
+        self.cleanup_buffers()
+    
     def predict(self, input_data, device):
+        try:
+            if device == 'glove':
+                self.input_stream = self.input_stream_hand
+                self.output_stream = self.output_stream_hand
+                self.input_stream[0] = 1.0
+                for i in range(0, INPUT_LENGTH_HAND):
+                    self.input_stream[i + 1] = input_data[i]
+                    #print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
+            elif device == 'leg':
+                self.input_stream = self.input_stream_leg
+                self.output_stream = self.output_stream_leg
+                self.input_stream[0] = 0
+                for i in range(0, INPUT_LENGTH_LEG):
+                    self.input_stream[i + 1] = input_data[i]
+                    #print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
+
+            # print(f'[DEBUG] Input stream: {self.input_stream}')
+            
+            self.dma_send.transfer(self.input_stream)
+            self.dma_send.wait()
+            
+            self.dma_recv.transfer(self.output_stream)
+            self.dma_recv.wait()
+
+            # Assuming output_stream contains probabilities for each class
+            action_index = np.argmax(self.output_stream)
+            confidence = self.output_stream[action_index]
+
+            return action_index, confidence
+        except Exception as e:
+            print(f'[ERROR] Error during prediction: {e}')
+            self.cleanup_buffers()
+            raise
         
-        if device == 'glove':
-            self.input_stream = self.input_stream_hand
-            self.output_stream = self.output_stream_hand
-            self.input_stream[0] = 1.0
-            for i in range(0, INPUT_LENGTH_HAND):
-                self.input_stream[i + 1] = input_data[i]
-                #print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
-        elif device == 'leg':
-            self.input_stream = self.input_stream_leg
-            self.output_stream = self.output_stream_leg
-            self.input_stream[0] = 0
-            for i in range(0, INPUT_LENGTH_LEG):
-                self.input_stream[i + 1] = input_data[i]
-                #print(f'[DEBUG] Input stream[{i + 1}]: {self.input_stream[i + 1]}')
-
-        print(f'[DEBUG] Input stream: {self.input_stream}')
-        
-        self.dma_send.transfer(self.input_stream)
-        self.dma_send.wait()
-        
-        self.dma_recv.transfer(self.output_stream)
-        self.dma_recv.wait()
-
-        # Assuming output_stream contains probabilities for each class
-        action_index = np.argmax(self.output_stream)
-        confidence = self.output_stream[action_index]
-
-        return action_index, confidence
-
 class AIServer:
     def __init__(self):
         self.rabbitmq_connection = None
@@ -137,7 +164,7 @@ class AIServer:
             
             print('[DEBUG] Received message from ai_queue')
             data = json.loads(message.body.decode('utf-8'))
-            print(f'[DEBUG] Message content: {data}')
+            # print(f'[DEBUG] Message content: {data}')
             
             device = data.get('imu_device')
             
@@ -169,8 +196,8 @@ class AIServer:
             
             # Scale the data
             input_data = scaler.transform(imu_data).flatten()
-            print("input_data Data:", input_data)  # Sanity check
-            print("input_data Data Length:", len(input_data))  # Sanity check
+            # print("input_data Data:", input_data)  # Sanity check
+            # print("input_data Data Length:", len(input_data))  # Sanity check
             
             # Ensure input_data length is correct
             if len(input_data) != input_length:
@@ -241,5 +268,7 @@ if __name__ == '__main__':
         asyncio.run(ai_server.run())
     except KeyboardInterrupt:
         print('[DEBUG] AI server stopped by user')
+        ai_server.classifier.cleanup_buffers()  # Ensure buffers are cleared on manual stop
     except Exception as e:
         print(f'[ERROR] {e}')
+        ai_server.classifier.cleanup_buffers()  # Ensure buffers are cleared on manual stop
