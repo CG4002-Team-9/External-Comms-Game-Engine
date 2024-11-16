@@ -37,7 +37,7 @@ ECOSYSTEM_FILE="/home/${REMOTE_USER}/.external_comms/ecosystem.config.js"  # Ass
 
 # Establish SSH Tunnel and keep it open until Ctrl+C
 echo "Establishing reverse SSH tunnel on port ${PORT}..."
-ssh -tt -R 8888:localhost:${PORT} ${REMOTE_USER}@${REMOTE_HOST} <<EOF
+ssh -tt -R 8000:localhost:${PORT} ${REMOTE_USER}@${REMOTE_HOST} <<EOF
 	set -e
 
 	source ~/.bashrc || source ~/.profile
