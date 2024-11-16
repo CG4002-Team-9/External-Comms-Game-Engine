@@ -66,7 +66,7 @@ def pad_or_truncate(array, target_length=60):
 class ActionClassifier:
     def __init__(self):
         try:
-            self.ol = Overlay(folder_to_use + 'unseen.bit')
+            self.ol = Overlay(folder_to_use + 'new_unseen.bit')
             self.nn = self.ol.gesture_model_0
             self.nn.write(0x0, 0x81)
             self.dma = self.ol.axi_dma_0
