@@ -1,4 +1,4 @@
-# External-Comms
+# External-Comms / Game Engine
 
 setup_reverse_proxy.sh is a script meant to be run on professors laptop to allow the connection of the eval_client with the eval_server. Dependencies needed is PM2 using npm and also all the python packages required in the game_engine, eval_client and ai_server python files.
 
